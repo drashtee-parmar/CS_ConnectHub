@@ -1,0 +1,384 @@
+/* body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    /* display: flex; */
+/* align-items: center;
+    justify-content: center; */
+/* background-image: linear-gradient(0deg, rgb(199, 227, 255), rgb(158, 255, 165)); 
+
+} */
+
+
+
+
+
+.gradient-background {
+    /* background: #DDD447;
+        background: linear-gradient(135deg, #DDD447, #7CB2E8); */
+
+    background-color: #8EC5FC;
+    background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+
+
+    /* color: white; */
+    color: #57755A;
+}
+
+.gradient-background #layout {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+/* background-color: #f4f4f4; */
+
+.home-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    background: #c6ffdd;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #c6ffdd, #fbd786, #f7797d);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #c6ffdd, #fbd786, #f7797d);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.home-container .links a {}
+
+.home-container h1 {
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.links a {
+    text-decoration: none;
+    /* color: #007BFF; */
+    color: #57755A;
+    padding: 10px 15px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=986c0a&c2=363231&gt=l&gd=dtl
+*/
+    /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=e4d27f&c2=e08c84&gt=l&gd=dtl
+*/
+    background: rgba(228, 210, 127, 1.0);
+    background: linear-gradient(135deg, rgba(228, 210, 127, 1.0), rgba(224, 140, 132, 1.0));
+}
+
+.links a:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+/* background-image: -moz-linear-gradient(0deg, rgb(199, 227, 255), rgb(158, 255, 165));
+
+background-image: -webkit-linear-gradient(0deg, rgb(199, 227, 255), rgb(158, 255, 165));
+
+background-image: linear-gradient(0deg, rgb(199, 227, 255), rgb(158, 255, 165)); */
+
+/* Existing styles... */
+
+/* Styles specific to the faculty table */
+/* Existing styles ... */
+
+.faculty-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Remove lines from table */
+.faculty-table,
+.faculty-table th,
+.faculty-table td {
+    border: none;
+}
+
+.faculty-table th {
+    background-color: rgba(0, 0, 0, 0.05);
+    /* Light background for header */
+    padding: 10px;
+    text-align: center;
+}
+
+.faculty-table td {
+    padding: 10px;
+    /* width: 100%; */
+    /* margin-top: 20px; */
+    /* border-collapse: collapse; */
+}
+
+/* .alumni-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+} */
+
+.faculty-table tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.02);
+    /* Slight shade for alternate rows */
+}
+
+.faculty-container h1 {
+    text-align: center;
+}
+
+.faculty-table th {
+    /* text-align: :center; */
+}
+
+/* Alumini */
+.alumni-container h1 {
+    text-align: center;
+}
+
+/* Existing styles... */
+
+/* Styles specific to the faculty table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table,
+th,
+td {
+    /* border: 1px solid #ddd; */
+}
+
+th {
+    padding: 10px;
+    text-align: center;
+}
+
+/* th, */
+td {
+    padding: 10px;
+    /* text-align: left; */
+    text-align: center;
+
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.active {
+    background-color: #0056b3;
+}
+
+/* _____________--- */
+/* 
+.blog-header {
+   line-height: 1;
+   border-bottom: 1px solid #e5e5e5;
+}
+
+.blog-header-logo:hover {
+   text-decoration: none;
+}
+
+
+/* body {
+   font-family: Arial, sans-serif;
+   background-color: #f4f4f4;
+   margin: 0;
+}
+
+.container {
+   text-align: center;
+   padding: 40px 0;
+}
+
+h1 {
+   margin-bottom: 30px;
+   color: #333;
+} */
+
+/* .navbar {
+   display: flex;
+   justify-content: center;
+   gap: 20px;
+}
+
+.navbar a {
+   text-decoration: none;
+   color: #007BFF;
+   padding: 10px 15px;
+   border: 1px solid transparent;
+   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.navbar a:hover {
+   background-color: #007BFF;
+   color: white;
+   border-color: #007BFF;
+} */
+
+/* body-container-nav {
+    font-family: Arial, sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
+    padding: 0;
+}
+
+.body-container {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.main-title {
+    color: #343a40;
+    font-size: 2em;
+    margin-bottom: 30px;
+    font-weight: bold;
+    border-bottom: 4px solid #007BFF;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-item:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+} */
+
+/* ______________ */
+
+/* .site-header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+}
+
+.active {
+    background-color: #0056b3;
+} */
+
+
+
+/* Global Styles */
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background: linear-gradient(45deg, #007BFF, #28a745); */
+    /* color: #FFFFFF; */
+    color: #57755A;
+    ;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #57755A;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.alumni-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+/* ******* chat bot ******** */
+
+.chatbot-button-container {
+    text-align: center;
+    margin-top: 20px;
+    /* Adjust as needed */
+}
+
+.chatbot-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.chatbot-button:hover {
+    background-color: #0056b3;
+}
+
+/* Checkbox */
+input[type="checkbox"]:checked~input[type="checkbox"] {
+    opacity: 0.6;
+    pointer-events: none;
+}
