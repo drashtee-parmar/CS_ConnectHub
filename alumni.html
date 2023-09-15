@@ -62,7 +62,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="static/styles.css">
     <title>Alumni Details</title>
 </head>
 
@@ -82,7 +82,7 @@
         <table class="alumni-table">
             <thead>
                 <tr>
-                    <th>Select</th> 
+                    <th>Select</th>
                     <th>Alumni Name</th>
                     <th>Major</th>
                     <th>Year Graduated</th>
@@ -91,21 +91,38 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><input type="checkbox" name="alumni-select" value="Alice Anderson"></td> 
+                    <td>
+                        <label>
+                            <input type="radio" name="alumni-select" value="Yong shi" class="styled-checkbox"">
+                            <span></span>
+                        </label>
+                    </td>
+                    <!-- <td><input type=" checkbox" name="alumni-select" value="Alice Anderson">
+                    </td> -->
                     <td>Alice Anderson</td>
                     <td>Computer Science</td>
                     <td>2015</td>
                     <td>Software Engineer at Google</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="alumni-select" value="Bob Brown"></td> <!-- Checkbox input -->
+                    <td>
+                        <label>
+                            <input type="radio" name="alumni-select" value="YBob Brown" class="styled-checkbox" ">
+                            <span></span>
+                        </label>
+                    </td>
                     <td>Bob Brown</td>
                     <td>Data Science</td>
                     <td>2018</td>
                     <td>Data Scientist at Facebook</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" name="alumni-select" value="Charlie Clark"></td> <!-- Checkbox input -->
+                    <td>
+                        <label>
+                            <input type="radio" name="alumni-select" value="Charlie Clark" class="styled-checkbox" ">
+                            <span></span>
+                        </label>
+                    </td>       
                     <td>Charlie Clark</td>
                     <td>Information Systems</td>
                     <td>2017</td>
@@ -115,8 +132,8 @@
             </tbody>
         </table>
     </div>
-    <div class="chatbot-button-container">
-        <a href="chatbot.html" class="chatbot-button">Chat with our Bot</a>
+    <div class=" chatbot-button-container">
+                            <a href="chatbot.html" class="chatbot-button">Chat with our Bot</a>
     </div>
 </body>
 
