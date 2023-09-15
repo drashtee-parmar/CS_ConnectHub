@@ -382,3 +382,46 @@ input[type="checkbox"]:checked~input[type="checkbox"] {
     opacity: 0.6;
     pointer-events: none;
 }
+
+/* Default styles for unchecked checkbox */
+.checkbox-input:not(:checked) + label {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* If a checkbox is checked, deactivate (reduce the opacity and disable pointer-events) for the rest of the checkboxes in the container */
+.checkbox-input:checked ~ .checkbox-input + label {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* This will hide the actual checkbox, leaving only the labels visible (which are stylable) */
+.checkbox-input {
+    display: none;
+}
+
+
+/* ________________ */
+
+
+/* Add this to your existing CSS file */
+
+/* Hide actual radio buttons */
+.styled-checkbox {
+    display: none;
+}
+
+/* Style for our custom checkboxes */
+.styled-checkbox + span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    background-color: white;
+}
+
+/* Style for our custom checkboxes when the corresponding radio button is selected */
+.styled-checkbox:checked + span {
+    background-color: black;
+}
+
