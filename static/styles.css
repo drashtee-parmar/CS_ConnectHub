@@ -384,13 +384,13 @@ input[type="checkbox"]:checked~input[type="checkbox"] {
 }
 
 /* Default styles for unchecked checkbox */
-.checkbox-input:not(:checked) + label {
+.checkbox-input:not(:checked)+label {
     opacity: 1;
     cursor: pointer;
 }
 
 /* If a checkbox is checked, deactivate (reduce the opacity and disable pointer-events) for the rest of the checkboxes in the container */
-.checkbox-input:checked ~ .checkbox-input + label {
+.checkbox-input:checked~.checkbox-input+label {
     opacity: 0.5;
     pointer-events: none;
 }
@@ -412,7 +412,7 @@ input[type="checkbox"]:checked~input[type="checkbox"] {
 }
 
 /* Style for our custom checkboxes */
-.styled-checkbox + span {
+.styled-checkbox+span {
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -421,7 +421,69 @@ input[type="checkbox"]:checked~input[type="checkbox"] {
 }
 
 /* Style for our custom checkboxes when the corresponding radio button is selected */
-.styled-checkbox:checked + span {
+.styled-checkbox:checked+span {
     background-color: black;
 }
+
+/* Chat bot */
+.chat-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.user-message {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    text-align: 80%;
+}
+
+.bot-message {
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+}
+
+/* --- Chatbot on click event */
+
+/* ... other styles ... */
+
+.chatbot-button-container {
+    text-align: center;
+    margin-top: 20px;
+    /* Adjust as needed */
+}
+
+.chatbot-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+/* .chatbot-button {
+    /* styling for the chatbot button */
+    /* display: block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}  */
+
+.chatbot-button:hover {
+    background-color: #2980b9;
+}
+
+/* Chatbox is initially hidden */
 

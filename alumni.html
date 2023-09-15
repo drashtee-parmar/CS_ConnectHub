@@ -119,7 +119,7 @@
                 <tr>
                     <td>
                         <label>
-                            <input type="radio" name="alumni-select" value="Charlie Clark" class="styled-checkbox" ">
+                            <input type=" radio" name="alumni-select" value="Charlie Clark" class="styled-checkbox" ">
                             <span></span>
                         </label>
                     </td>       
@@ -132,9 +132,37 @@
             </tbody>
         </table>
     </div>
-    <div class=" chatbot-button-container">
+    <!-- <div class=" chatbot-button-container">
                             <a href="chatbot.html" class="chatbot-button">Chat with our Bot</a>
+    </div> -->
+
+    <div class="chatbot-button-container">
+        <!-- <a href="chatbot.html" class="chatbot-button">Chat with our Bot</a> -->
+        <!-- <button onclick="toggleChatbot()" class="chatbot-button">Chat with our Bot</button> -->
+        <!-- Chatbot trigger and interface -->
+        <a onclick="toggleChatbot()" class="chatbot-button">Chat with our Bot</a>
+        <div class="chatbox" id="chat-interface">
+            <div class="messages">
+                <p class="bot-message">Hello! How can I assist you?</p>
+            </div>
+            <div class="input-area">
+                <input type="text" placeholder="Type your message...">
+                <button>Send</button>
+            </div>
+        </div>
+
     </div>
+
+    <script>
+        function toggleChatbot() {
+            var chatbot = document.getElementById('chat-interface');
+            if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+                chatbot.style.display = 'block';
+            } else {
+                chatbot.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 
 

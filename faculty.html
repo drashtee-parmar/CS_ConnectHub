@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/styles.css">
     <title>Faculty</title>
+
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
 </head>
 
 <body class="gradient-background">
@@ -74,20 +77,69 @@
     </div>
 
 
-        <!-- ... your other content ... -->
+    <!-- ... your other content ... -->
 
-        <div class="chatbot-button-container">
-            <a href="chatbot.html" class="chatbot-button">Chat with our Bot</a>
-        </div>
+    <!-- <div class="chatbot-button-container">
+        <a href="chatbot.html" class="chatbot-button">Chat with our Bot</a>
 
-        <!-- ... your other content ... -->
 
     </div>
+
+    <!-- ... your other content ... -->
+    <!-- <div class="mt-4 chat-container" id="chat"></div>
+    <div class="input-group mt-3"> <input type="text" class="form-control" id="userInput"
+            placeholder="Type your message">
+        <div class="input-group-append"> <button class="btn btn-primary" type="button"
+                onclick="sendMessage()">Send</button> </div>
+    </div> -->
+
+    <!-- </div> -->
+
+
+    <!-- Chatbot section -->
+    <!-- <input type="checkbox" id="chatbotToggle" class="hidden-checkbox"> -->
+    <!-- Chatbot section -->
+    <div class="chatbot-button-container">
+        <!-- <a href="chatbot.html" class="chatbot-button">Chat with our Bot</a> -->
+        <!-- <button onclick="toggleChatbot()" class="chatbot-button">Chat with our Bot</button> -->
+        <!-- Chatbot trigger and interface -->
+        <a onclick="toggleChatbot()" class="chatbot-button">Chat with our Bot</a>
+        <div class="chatbox" id="chat-interface">
+            <div class="messages">
+                <p class="bot-message">Hello! How can I assist you?</p>
+            </div>
+            <div class="input-area">
+                <input type="text" placeholder="Type your message...">
+                <button>Send</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Chatbot trigger and interface -->
+    <!-- <a onclick="toggleChatbot()" class="chatbot-button">Chat with our Bot</a>
+    <div class="chatbox" id="chat-interface">
+        <div class="messages">
+            <p class="bot-message">Hello! How can I assist you?</p>
+        </div>
+        <div class="input-area">
+            <input type="text" placeholder="Type your message...">
+            <button>Send</button>
+        </div>
+    </div> -->
+
+    <script>
+        function toggleChatbot() {
+            var chatbot = document.getElementById('chat-interface');
+            if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+                chatbot.style.display = 'block';
+            } else {
+                chatbot.style.display = 'none';
+            }
+        }
+    </script>
+
+
 </body>
 
 </html>
-
-
-
-
-
