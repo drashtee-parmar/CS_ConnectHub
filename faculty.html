@@ -19,14 +19,32 @@
         #chatContainer {
             display: none;
             border: 1px solid black;
-            width: 300px;
+            width: 70%;
+            max-width: 800px;
+            /* Optional: This ensures that it doesn't get too wide */
+
             padding: 10px;
             margin-top: 15px;
 
         }
 
+        .input_inlineBlock {
+            display: inline-block;
+            width: 100%;
+            /* Width for the input */
+        }
+
+        .button_inlineBlock {
+            display: inline-block;
+            width: 150px;
+            /* Width for the button */
+        }
+
+
+
         .inlineBlock {
             display: inline-block;
+
         }
     </style>
 
@@ -105,10 +123,13 @@
         <button id="chatbotButton" onclick="toggleChat()">Chat with Selected Professor</button>
 
         <div id="chatContainer">
-            <input type="text" placeholder="Enter your question here..." class="inlineBlock" style="width: 220px;">
-            <button class="inlineBlock">Send</button>
+            <input id="questionInput" type="text" placeholder="Enter your question here..." class="input_inlineBlock"
+                style="width: 220px;">
+            <!-- <button class="inlineBlock" onclick="retrieveInfo()">Send</button> -->
+            <!-- <button class="button_inlineBlock" onclick="populateTextarea()"id="sendBtn">Send</button> -->
+            <button class="button_inlineBlock" onclick="fetchFacultyInfo()" id="sendQueryButton">Send</button>
             <br><br>
-            <textarea rows="4" cols="30" placeholder="Output here..."></textarea>
+            <textarea id="outputTextarea" rows="15" cols="50" placeholder="Output here..."></textarea>
         </div>
     </div>
 
@@ -188,6 +209,78 @@
             chatbotButton.style.display = 'block';
             chatbotButton.innerHTML = 'Chat with ' + professorInfo;
         }
+
+        function fetchFacultyInfo() {
+            fetch('http://127.0.0.1:5500/facultychat/')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('facultyInfo').innerHTML = `
+                        Name: ${data.name} <br>
+                        Department: ${data.department} <br>
+                        Email: ${data.email}
+                    `;
+                })
+                .catch(error => {
+                    console.error('Failed to fetch faculty information:', error);
+                });
+        }
+        document.getElementById('sendQueryButton').addEventListener('click', async () => {
+            try {
+                const professorName = document.querySelector('input[name="faculty-select"]:checked').value;
+                const response = await fetch(`faculty?name=${professorName}`);
+                const data = await response.json();
+                document.querySelector('textarea').value = `
+                    Name: ${data.name}\n
+                    Email: ${data.email}\n
+                    Subject Taught: ${data.subject}
+                `;
+            } catch (error) {
+                console.error('Failed to fetch faculty information:', error);
+                document.querySelector('textarea').value = "Failed to fetch faculty information.";
+            }
+        });
+
+        document.getElementById('sendBtn').addEventListener('click', async () => {
+            try {
+                <!-- const response = await fetch('http://localhost:3000/facultychat'); -->
+                const response = await fetch('/facultychat');
+                const data = await response.json();
+                document.getElementById('facultyInfo').innerHTML = `
+                    Name: ${data.name} <br>
+                    Department: ${data.department} <br>
+                    Email: ${data.email}
+                `;
+            } catch (error) {
+                console.error('Failed to fetch faculty information:', error);
+            }
+        });
+
+
+        // This function is to populate the textarea with the necessary information
+        function populateTextarea() {
+            const questionInput = document.getElementById('questionInput');
+            const outputTextarea = document.getElementById('outputTextarea');
+
+            // Get the selected professor's row
+            const selectedRadio = document.querySelector('input[name="faculty-select"]:checked');
+            if (selectedRadio) {
+                const selectedRow = selectedRadio.closest('tr');
+
+                const professorName = selectedRow.cells[1].textContent;
+                const subjectTaught = selectedRow.cells[3].textContent;
+
+                // Update the textarea
+                outputTextarea.value = `Professor Name: ${professorName}\n`;
+                outputTextarea.value += `Subject Taught: ${subjectTaught}\n`;
+                outputTextarea.value += `Question: ${questionInput.value}\n`;
+            } else {
+                // In case no professor is selected, display a warning message
+                outputTextarea.value = 'Please select a professor first.';
+            }
+        }
+
+
+
 
     </script>
 
