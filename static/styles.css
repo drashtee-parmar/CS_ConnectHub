@@ -472,7 +472,7 @@ input[type="checkbox"]:checked~input[type="checkbox"] {
 
 /* .chatbot-button {
     /* styling for the chatbot button */
-    /* display: block;
+/* display: block;
     padding: 10px 20px;
     background-color: #3498db;
     color: #fff;
@@ -487,3 +487,12 @@ input[type="checkbox"]:checked~input[type="checkbox"] {
 
 /* Chatbox is initially hidden */
 
+.faculty-chat {
+    font-family: Arial, sans-serif;
+    /* height: 100vh;  */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontal center alignment */
+    justify-content: center;
+}

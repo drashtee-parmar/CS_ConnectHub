@@ -6,6 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/styles.css">
     <title>Faculty</title>
+    <style>
+        #chatbotButton {
+            display: none;
+            margin-top: 15px;
+            align-items: center;
+            /* Horizontal center alignment */
+
+            justify-content: center;
+        }
+
+        #chatContainer {
+            display: none;
+            border: 1px solid black;
+            width: 300px;
+            padding: 10px;
+            margin-top: 15px;
+
+        }
+
+        .inlineBlock {
+            display: inline-block;
+        }
+    </style>
 
 
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
@@ -42,7 +65,8 @@
                 <tr>
                     <td>
                         <label>
-                            <input type="radio" name="faculty-select" value="Yong shi" class="styled-checkbox">
+                            <input type="radio" name="faculty-select" value="Yong shi" onclick="showChatbot(this.value)"
+                                class="styled-checkbox">
                             <span></span>
                         </label>
                     </td>
@@ -53,7 +77,8 @@
                 <tr>
                     <td>
                         <label>
-                            <input type="radio" name="faculty-select" value="Mahmut Karakaya" class="styled-checkbox">
+                            <input type="radio" name="faculty-select" value="Mahmut Karakaya"
+                                onclick="showChatbot(this.value)" class="styled-checkbox">
                             <span></span>
                         </label>
                     </td>
@@ -64,7 +89,8 @@
                 <tr>
                     <td>
                         <label>
-                            <input type="radio" name="faculty-select" value="Alan Shaw" class="styled-checkbox">
+                            <input type="radio" name="faculty-select" value="Alan Shaw"
+                                onclick="showChatbot(this.value)" class="styled-checkbox">
                             <span></span>
                         </label>
                     </td>
@@ -75,35 +101,24 @@
             </tbody>
         </table>
     </div>
+    <div class="faculty-chat">
+        <button id="chatbotButton" onclick="toggleChat()">Chat with Selected Professor</button>
 
-
-    <!-- ... your other content ... -->
-
-    <!-- <div class="chatbot-button-container">
-        <a href="chatbot.html" class="chatbot-button">Chat with our Bot</a>
-
-
+        <div id="chatContainer">
+            <input type="text" placeholder="Enter your question here..." class="inlineBlock" style="width: 220px;">
+            <button class="inlineBlock">Send</button>
+            <br><br>
+            <textarea rows="4" cols="30" placeholder="Output here..."></textarea>
+        </div>
     </div>
 
-    <!-- ... your other content ... -->
-    <!-- <div class="mt-4 chat-container" id="chat"></div>
-    <div class="input-group mt-3"> <input type="text" class="form-control" id="userInput"
-            placeholder="Type your message">
-        <div class="input-group-append"> <button class="btn btn-primary" type="button"
-                onclick="sendMessage()">Send</button> </div>
-    </div> -->
-
-    <!-- </div> -->
 
 
-    <!-- Chatbot section -->
-    <!-- <input type="checkbox" id="chatbotToggle" class="hidden-checkbox"> -->
-    <!-- Chatbot section -->
-    <div class="chatbot-button-container">
-        <!-- <a href="chatbot.html" class="chatbot-button">Chat with our Bot</a> -->
-        <!-- <button onclick="toggleChatbot()" class="chatbot-button">Chat with our Bot</button> -->
-        <!-- Chatbot trigger and interface -->
-        <a onclick="toggleChatbot()" class="chatbot-button">Chat with our Bot</a>
+    <!-- <button id="chatbotButton" onclick="alert('Chatbot initiated!')">Chat with our Bot</button> -->
+    <!-- <div class="chatbot-button-container">
+
+        <!-- <button id="chatbotButton" onclick="toggleChatbot()" class="chatbot-button">Chat with our Bot</button> -->
+    <!-- <a id="chatbotButton" onclick="toggleChatbot()" class="chatbot-button">Chat with our Bot</a>
         <div class="chatbox" id="chat-interface">
             <div class="messages">
                 <p class="bot-message">Hello! How can I assist you?</p>
@@ -113,8 +128,27 @@
                 <button>Send</button>
             </div>
         </div>
+    </div> -->
 
-    </div>
+
+    <!-- Chatbot section -->
+    <!-- <input type="checkbox" id="chatbotToggle" class="hidden-checkbox"> -->
+    <!-- Chatbot section -->
+    <!-- <div class="chatbot-button-container">
+             <a href="chatbot.html" class="chatbot-button">Chat with our Bot</a> -->
+    <!-- <button onclick="toggleChatbot()" class="chatbot-button">Chat with our Bot</button> -->
+    <!-- Chatbot trigger and interface -->
+    <!-- <a onclick="toggleChatbot()" class="chatbot-button">Chat with our Bot</a>
+            <div class="chatbox" id="chat-interface">
+                <div class="messages">
+                    <p class="bot-message">Hello! How can I assist you?</p>
+                </div>
+                <div class="input-area">
+                    <input type="text" placeholder="Type your message...">
+                    <button>Send</button>
+                </div>
+            </div>
+        </div> -->
 
     <!-- Chatbot trigger and interface -->
     <!-- <a onclick="toggleChatbot()" class="chatbot-button">Chat with our Bot</a>
@@ -129,6 +163,17 @@
     </div> -->
 
     <script>
+        function toggleChatbotButton() {
+            document.getElementById('chatbotButton').style.display = 'block';
+        }
+
+        function toggleChat() {
+            var chatContainer = document.getElementById('chatContainer');
+            chatContainer.style.display = chatContainer.style.display === 'none' ? 'block' : 'none';
+        }
+
+
+        <!-- Not in use -->
         function toggleChatbot() {
             var chatbot = document.getElementById('chat-interface');
             if (chatbot.style.display === 'none' || chatbot.style.display === '') {
@@ -137,6 +182,13 @@
                 chatbot.style.display = 'none';
             }
         }
+
+        function showChatbot(professorInfo) {
+            let chatbotButton = document.getElementById('chatbotButton');
+            chatbotButton.style.display = 'block';
+            chatbotButton.innerHTML = 'Chat with ' + professorInfo;
+        }
+
     </script>
 
 
