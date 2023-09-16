@@ -126,9 +126,7 @@
             <input id="questionInput" type="text" placeholder="Enter your question here..." class="input_inlineBlock"
                 style="width: 220px;">
             <!-- <button class="inlineBlock" onclick="retrieveInfo()">Send</button> -->
-            <button class="button_inlineBlock" onclick="populateTextarea()" id="sendBtn">Send</button>
-            <button class="button_inlineBlock" onclick="resetTextarea()" style="background-color: red;">Reset</button>
-
+            <button class="button_inlineBlock" onclick="populateTextarea()"id="sendBtn">Send</button>
             <br><br>
             <textarea id="outputTextarea" rows="15" cols="50" placeholder="Output here..."></textarea>
         </div>
@@ -195,6 +193,7 @@
         }
 
 
+        <!-- Not in use -->
         function toggleChatbot() {
             var chatbot = document.getElementById('chat-interface');
             if (chatbot.style.display === 'none' || chatbot.style.display === '') {
@@ -210,46 +209,19 @@
             chatbotButton.innerHTML = 'Chat with ' + professorInfo;
         }
 
-        function resetTextarea() {
-            document.getElementById('outputTextarea').value = '';
-        }
-
-
-
         document.getElementById('sendBtn').addEventListener('click', async () => {
-            const selectedProfessor = document.querySelector('input[name="faculty-select"]:checked').value;
-            const questionInput = document.getElementById('questionInput').value;
-
             try {
-                const response = await fetch('/facultychat', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        selected_professor: selectedProfessor,
-                        question: questionInput
-                    })
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log(data); // Log professor's information to the console
-
-                    // Update the HTML elements to display the professor's information
-                    document.getElementById('outputTextarea').value = `Professor Name: ${data.name}\n`;
-                    document.getElementById('outputTextarea').value += `Email: ${data.email}\n`;
-                    document.getElementById('outputTextarea').value += `Subject Taught: ${data.subject_taught}\n`;
-                } else {
-                    console.error('Failed to fetch faculty information:', response.status);
-                }
+                const response = await fetch('http://localhost:3000/facultychat');
+                const data = await response.json();
+                document.getElementById('facultyInfo').innerHTML = `
+                    Name: ${data.name} <br>
+                    Department: ${data.department} <br>
+                    Email: ${data.email}
+                `;
             } catch (error) {
                 console.error('Failed to fetch faculty information:', error);
             }
         });
-
-
-
 
 
         // This function is to populate the textarea with the necessary information
