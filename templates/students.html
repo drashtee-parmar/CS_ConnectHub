@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/styles.css" />
+    <title>Student-Career Advisor</title>
+    <style>
+      #chatbotButton {
+        display: none;
+        margin-top: 15px;
+        align-items: center;
+        /* Horizontal center alignment */
+
+        justify-content: center;
+      }
+
+      #chatContainer {
+        display: none;
+        border: 1px solid black;
+        width: 70%;
+        max-width: 800px;
+        align-items: center;
+        /* Optional: This ensures that it doesn't get too wide */
+
+        padding: 10px;
+        margin-top: 15px;
+      }
+
+      .input_inlineBlock {
+        display: inline-block;
+        width: 100%;
+        /* Width for the input */
+      }
+
+      .button_inlineBlock {
+        display: inline-block;
+        width: 150px;
+        /* Width for the button */
+      }
+
+      .inlineBlock {
+        display: inline-block;
+      }
+    </style>
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+  </head>
+
+  <body class="gradient-background">
+    <header>
+      <h1>Student-Career Advisor</h1>
+
+      <nav>
+        <a href="/">Home</a>
+        <a href="faculty">Faculty</a>
+        <a href="alumni">Alumni</a>
+        <a href="students">Students</a>
+      </nav>
+    </header>
+    <!-- Page-specific content here -->
+
+    <div class="faculty-container">
+      <h1>MSCS Students - Career Advisor</h1>
+      <table class="faculty-table">
+        <thead>
+          <tr>
+            <th>Select</th>
+            <th>Career Advisor Name</th>
+            <th>Email</th>
+            <th>Carrer Advisor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <label>
+                <input
+                  type="radio"
+                  name="faculty-select"
+                  value="Ashley Nurse"
+                  onclick="showChatbot(this.value)"
+                  class="styled-checkbox"
+                />
+                <span></span>
+              </label>
+            </td>
+            <td>Ashley Nurse</td>
+            <td>sle123@kennesaw.edu</td>
+            <td>Resume Building</td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                <input
+                  type="radio"
+                  name="faculty-select"
+                  value="Nasiya Sherif"
+                  onclick="showChatbot(this.value)"
+                  class="styled-checkbox"
+                />
+                <span></span>
+              </label>
+            </td>
+            <td>Nasiya Sherif</td>
+            <td>nsherif@kennesaw.edu</td>
+            <td>Career Advising</td>
+          </tr>
+          <tr>
+            <td>
+              <label>
+                <input
+                  type="radio"
+                  name="faculty-select"
+                  value="Alex Rodger"
+                  onclick="showChatbot(this.value)"
+                  class="styled-checkbox"
+                />
+                <span></span>
+              </label>
+            </td>
+            <td>Alex Rodger</td>
+            <td>aroger8@kennesaw.edu</td>
+            <td>Personality Development</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="students-chat">
+      <button id="chatbotButton" onclick="toggleChat()">
+        Chat with Selected Professor
+      </button>
+
+      <div id="chatContainer">
+        <input
+          id="questionInput"
+          type="text"
+          placeholder="Enter your question here..."
+          class="input_inlineBlock"
+          style="width: 310px"
+        />
+        <!-- <button class="inlineBlock" onclick="retrieveInfo()">Send</button> -->
+        <button
+          class="button_inlineBlock"
+          onclick="populateTextarea()"
+          id="sendBtn"
+        >
+          Send
+        </button>
+        <button
+          class="button_inlineBlock"
+          id="resetBtn"
+          onClick="window.location.reload(true)"
+        >
+          Reset
+        </button>
+        <!--<input type = "button" value= "Reset" onClick= "window.location.reload(true)"></input>-->
+        <br /><br />
+        <textarea
+          id="outputTextarea"
+          rows="15"
+          cols="83"
+          placeholder="Output here..."
+        ></textarea>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      function toggleChatbotButton() {
+        document.getElementById("chatbotButton").style.display = "block";
+      }
+
+      function toggleChat() {
+        var chatContainer = document.getElementById("chatContainer");
+        chatContainer.style.display =
+          chatContainer.style.display === "none" ? "block" : "none";
+      }
+
+      <!-- Not in use -->
+      function toggleChatbot() {
+        var chatbot = document.getElementById("chat-interface");
+        if (chatbot.style.display === "none" || chatbot.style.display === "") {
+          chatbot.style.display = "block";
+        } else {
+          chatbot.style.display = "none";
+        }
+      }
+
+      function showChatbot(advisorInfo) {
+        let chatbotButton = document.getElementById("chatbotButton");
+        chatbotButton.style.display = "block";
+        chatbotButton.innerHTML = "Chat with " + advisorInfo;
+      }
+
+      /* document.getElementById('sendBtn').addEventListener('click', async () => {
+            try {
+                const response = await fetch('http://localhost:3000/facultychat');
+                const data = await response.json();
+                document.getElementById('facultyInfo').innerHTML = `
+                    Name: ${data.name} <br>
+                    Department: ${data.department} <br>
+                    Email: ${data.email}
+                `;
+            } catch (error) {
+                console.error('Failed to fetch faculty information:', error);
+            }
+        });*/
+
+      // This function is to populate the textarea with the necessary information
+      function populateTextarea() {
+        const questionInput = document.getElementById("questionInput");
+        const outputTextarea = document.getElementById("outputTextarea");
+
+        // Get the selected professor's row
+        const selectedRadio = document.querySelector(
+          'input[name="faculty-select"]:checked'
+        );
+        if (selectedRadio) {
+          const selectedRow = selectedRadio.closest("tr");
+
+          const advisorName = selectedRow.cells[1].textContent;
+          const carrerAdvisor = selectedRow.cells[3].textContent;
+          const questionInputtext = questionInput.value;
+
+          var server_data = [
+            { "Advisor Name": advisorName },
+            { "Carrer Advisor": carrerAdvisor },
+            { Question: questionInputtext },
+          ];
+
+          $.ajax({
+            type: "POST",
+            url: "/studentadvisorchat",
+            data: JSON.stringify(server_data),
+            contentType: "application/json",
+            dataType: "json",
+          }).done(function (data) {
+            //$('#outputTextarea').html("<b>"Question:"</b>");
+            //$('#outputTextarea').text(data['assistant_response']).show()});
+            //text(data.output).show()});
+            outputTextarea.value += `Question: ${data["user_message"]}\n`;
+            outputTextarea.value += `Response: ${data["assistant_response"]}\n\n\n`;
+
+            console.log("Response Data:", data["assistant_response"]);
+          });
+        } else {
+          outputTextarea.value = "Please select a professor first.";
+        }
+      }
+
+      function reset_students() {
+        $.ajax({
+          type: "POST",
+          url: "/students",
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,169 +1,261 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css">
-    <title>Alumni Details</title>
-</head>
-
-<body class="gradient-background">
-
-    <header>
-        <h1>Alumni</h1>
-        <nav>
-            <a href="index.html">Home</a> 
-            <a href="faculty.html">Faculty</a> 
-            <a href="alumni.html">Alumni</a> 
-            <a href="student.html">Student</a>
-        </nav>
-    </header>
-    <div class="alumni-container">
-        <h1>Alumni Details</h1>
-        <table class="alumni-table">
-            <thead>
-                <tr>
-                    <th>Alumni Name</th>
-                    <th>Major</th>
-                    <th>Year Graduated</th>
-                    <th>Profession</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Alice Anderson</td>
-                    <td>Computer Science</td>
-                    <td>2015</td>
-                    <td>Software Engineer at Google</td>
-                </tr>
-                <tr>
-                    <td>Bob Brown</td>
-                    <td>Data Science</td>
-                    <td>2018</td>
-                    <td>Data Scientist at Facebook</td>
-                </tr>
-                <tr>
-                    <td>Charlie Clark</td>
-                    <td>Information Systems</td>
-                    <td>2017</td>
-                    <td>System Administrator at Amazon</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</body>
-
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/styles.css">
-    <title>Alumni Details</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="static/styles.css"/>
+    <title>Alumni</title>
+    <style>
+      #chatbotButton {
+        display: none;
+        margin-top: 15px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #chatContainer {
+        display: none;
+        border: 1px solid black;
+        width: 70%;
+        max-width: 800px;
+        align-items: center;
+        /* Optional: This ensures that it doesn't get too wide */
+
+        padding: 10px;
+        margin-top: 15px;
+      }
+
+      .input_inlineBlock {
+        display: inline-block;
+        width: 100%;
+        /* Width for the input */
+      }
+
+      .button_inlineBlock {
+        display: inline-block;
+        width: 150px;
+        /* Width for the button */
+      }
+
+      .inlineBlock {
+        display: inline-block;
+      }
+
+    </style>
+
+    <!-- Add your styles and scripts as needed -->
 </head>
 
 <body class="gradient-background">
+<header>
+    <h1>Alumni</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="faculty">Faculty</a>
+        <a href="alumni">Alumni</a>
+        <a href="students">Students</a>
+    </nav>
+</header>
 
-    <header>
-        <h1>Alumni</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="faculty.html">Faculty</a>
-            <a href="alumni.html">Alumni</a>
-            <a href="student.html">Student</a>
-        </nav>
-    </header>
-    <div class="alumni-container">
-        <h1>Alumni Details</h1>
-        <table class="alumni-table">
-            <thead>
-                <tr>
-                    <th>Select</th>
-                    <th>Alumni Name</th>
-                    <th>Major</th>
-                    <th>Year Graduated</th>
-                    <th>Profession</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <label>
-                            <input type="radio" name="alumni-select" value="Yong shi" class="styled-checkbox"">
-                            <span></span>
-                        </label>
-                    </td>
-                    <!-- <td><input type=" checkbox" name="alumni-select" value="Alice Anderson">
-                    </td> -->
-                    <td>Alice Anderson</td>
-                    <td>Computer Science</td>
-                    <td>2015</td>
-                    <td>Software Engineer at Google</td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>
-                            <input type="radio" name="alumni-select" value="YBob Brown" class="styled-checkbox" ">
-                            <span></span>
-                        </label>
-                    </td>
-                    <td>Bob Brown</td>
-                    <td>Data Science</td>
-                    <td>2018</td>
-                    <td>Data Scientist at Facebook</td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>
-                            <input type=" radio" name="alumni-select" value="Charlie Clark" class="styled-checkbox" ">
-                            <span></span>
-                        </label>
-                    </td>       
-                    <td>Charlie Clark</td>
-                    <td>Information Systems</td>
-                    <td>2017</td>
-                    <td>System Administrator at Amazon</td>
-                </tr>
-                <!-- ... add more rows as needed ... -->
-            </tbody>
-        </table>
+<div class="alumni-container">
+    <h1>Alumni Information</h1>
+    <table class="alumni-table">
+        <thead>
+        <tr>
+            <th>Select</th>
+            <th>Alumni Name</th>
+            <th>Department</th>
+            <th>Graduation Year</th>
+            <th>Current Position</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <label>
+                    <input
+                            type="radio"
+                            name="alumni-select"
+                            value="Alice Anderson"
+                            onclick="showChatbot(this.value)"
+                            class="styled-checkbox"
+                    />
+                    <span></span>
+                </label>
+            </td>
+            <td>Alice Anderson</td>
+            <td>Computer Science</td>
+            <td>2015</td>
+            <td>Software Engineer at Google</td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    <input
+                            type="radio"
+                            name="alumni-select"
+                            value="Bob Brown"
+                            onclick="showChatbot(this.value)"
+                            class="styled-checkbox"
+                    />
+                    <span></span>
+                </label>
+            </td>
+            <td>Bob Brown</td>
+            <td>Data Science</td>
+            <td>2018</td>
+            <td>Data Scientist at Facebook</td>
+        </tr>
+        <tr>
+            <td>
+                <label>
+                    <input
+                            type="radio"
+                            name="alumni-select"
+                            value="Charlie Clark"
+                            onclick="showChatbot(this.value)"
+                            class="styled-checkbox"
+                    />
+                    <span></span>
+                </label>
+            </td>
+            <td>Charlie Clark</td>
+            <td>Information Systems</td>
+            <td>2017</td>
+            <td>System Administrator at Amazon</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="alumni-chat">
+    <button id="chatbotButton" onclick="toggleChat()">
+        Chat with Selected Alumni
+    </button>
+
+    <div id="chatContainer">
+        <input
+            id="questionInput"
+            type="text"
+            placeholder="Enter your question here..."
+            class="input_inlineBlock"
+            style="width: 310px"
+        />
+        <button
+                class="button_inlineBlock"
+                onclick="populateTextarea()"
+                id="sendBtn"
+        >
+            Send
+        </button>
+        <button
+                class="button_inlineBlock"
+                id="resetBtn"
+                onClick="window.location.reload(true)"
+        >
+            Reset
+        </button>
+        <br/><br/>
+        <textarea
+                id="outputTextarea"
+                rows="15"
+                cols="83"
+                placeholder="Output here..."
+        ></textarea>
     </div>
-    <!-- <div class=" chatbot-button-container">
-                            <a href="chatbot.html" class="chatbot-button">Chat with our Bot</a>
-    </div> -->
+</div>
 
-    <div class="chatbot-button-container">
-        <!-- <a href="chatbot.html" class="chatbot-button">Chat with our Bot</a> -->
-        <!-- <button onclick="toggleChatbot()" class="chatbot-button">Chat with our Bot</button> -->
-        <!-- Chatbot trigger and interface -->
-        <a onclick="toggleChatbot()" class="chatbot-button">Chat with our Bot</a>
-        <div class="chatbox" id="chat-interface">
-            <div class="messages">
-                <p class="bot-message">Hello! How can I assist you?</p>
-            </div>
-            <div class="input-area">
-                <input type="text" placeholder="Type your message...">
-                <button>Send</button>
-            </div>
-        </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+      function toggleChatbotButton() {
+        document.getElementById("chatbotButton").style.display = "block";
+      }
 
-    </div>
+      function toggleChat() {
+        var chatContainer = document.getElementById("chatContainer");
+        chatContainer.style.display =
+          chatContainer.style.display === "none" ? "block" : "none";
+      }
 
-    <script>
-        function toggleChatbot() {
-            var chatbot = document.getElementById('chat-interface');
-            if (chatbot.style.display === 'none' || chatbot.style.display === '') {
-                chatbot.style.display = 'block';
-            } else {
-                chatbot.style.display = 'none';
-            }
+      function toggleChatbot() {
+        var chatbot = document.getElementById("chat-interface");
+        if (chatbot.style.display === "none" || chatbot.style.display === "") {
+          chatbot.style.display = "block";
+        } else {
+          chatbot.style.display = "none";
         }
-    </script>
+      }
+
+      function showChatbot(alumniInfo) {
+        let chatbotButton = document.getElementById("chatbotButton");
+        chatbotButton.style.display = "block";
+        chatbotButton.innerHTML = "Chat with " + alumniInfo;
+      }
+
+      /* document.getElementById('sendBtn').addEventListener('click', async () => {
+        try {
+            const response = await fetch('http://localhost:3000/facultychat');
+            const data = await response.json();
+            document.getElementById('facultyInfo').innerHTML = `
+                Name: ${data.name} <br>
+                Department: ${data.department} <br>
+                Email: ${data.email}
+            `;
+        } catch (error) {
+            console.error('Failed to fetch faculty information:', error);
+        }
+    });*/
+
+      // This function is to populate the textarea with the necessary information
+      function populateTextarea() {
+        const questionInput = document.getElementById("questionInput");
+        const outputTextarea = document.getElementById("outputTextarea");
+
+        //
+        const selectedRadio = document.querySelector(
+          'input[name="alumni-select"]:checked'
+        );
+        if (selectedRadio) {
+          const selectedRow = selectedRadio.closest("tr");
+
+          const alumniName = selectedRow.cells[1].textContent;
+          const department = selectedRow.cells[2].textContent;
+          const graduationYear = selectedRow.cells[3].textContent;
+          const currentPosition = selectedRow.cells[4].textContent;
+          const questionInputText = questionInput.value;
+
+          var server_data = [
+            { "Alumni Name": alumniName },
+            { Department: department },
+            { "Graduation Year": graduationYear },
+            { "Current Position": currentPosition },
+            { Question: questionInputText },
+          ];
+
+          $.ajax({
+            type: "POST",
+            url: "/alumnichat",
+            data: JSON.stringify(server_data),
+            contentType: "application/json",
+            dataType: "json",
+          }).done(function (data) {
+            outputTextarea.value += `Question: ${data["user_message"]}\n`;
+            outputTextarea.value += `Response: ${data["assistant_response"]}\n\n\n`;
+
+            console.log("Response Data:", data["assistant_response"]);
+          });
+        } else {
+          outputTextarea.value = "Please select an alumni first.";
+        }
+      }
+
+      function reset_alumni() {
+        $.ajax({
+          type: "POST",
+          url: "/alumni",
+        });
+      }
+
+</script>
 </body>
-
-
 </html>
