@@ -27,7 +27,7 @@ import openai
 app = Flask(__name__)
 
 # Set your OpenAI API key
-openai.api_key = "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"
+openai.api_key = "Please insert your OpenAI API key here"
 
 
 def conversation(messages, temperature=0.7):
