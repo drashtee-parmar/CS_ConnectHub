@@ -307,7 +307,9 @@
             const response = `<strong>Response:</strong><br>${formatResponse(
               data["assistant_response"]
             )}`;
-            $("#outputContainer").append(
+            // Prepend the latest entry on top
+
+            $("#outputContainer").prepend(
               `<div class="chat-entry">${question}${response}<hr></div>`
             );
             $("#questionInput").val(""); // ✅ Clear input after sending
@@ -317,12 +319,12 @@
         }
       }
       function formatResponse(text) {
-        return text
-          .replace(/```([\s\S]*?)```/g, "<pre><code>$1</code></pre>") // code blocks
-          .replace(/`([^`]+)`/g, "<code>$1</code>") // inline code
-          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // bold
-          .replace(/### (.*?)\n/g, "<h4>$1</h4>") // headings
-          .replace(/\n/g, "<br>"); // line breaks
+          return text
+              .replace(/```([\s\S]*?)```/g, "<pre><code>$1</code></pre>")
+              .replace(/`([^`]+)`/g, "<code>$1</code>")
+              .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+              .replace(/### (.*?)\n/g, "<h4>$1</h4>")
+              .replace(/\n/g, "<br>");
       }
       <!--      // This function is to populate the textarea with the necessary information-->
       <!--      function populateTextarea() {-->

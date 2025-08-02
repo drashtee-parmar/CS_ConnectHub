@@ -6,10 +6,11 @@
     */
 
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #121212;          /* Black background */
-    color: #FFA500;
+    margin     : 0;
+    padding    : 0;
+    background : #121212;
+    /* Black background */
+    color      : #FFA500;
 }
 
 .gradient-background #layout {
@@ -21,129 +22,135 @@
     justify-content: center;
 
 }
-    /* ✅ Neon Card */
-    .home-container {
-      text-align: center;
-      background: #1a1a1a;
-      border: 2px solid #FFA500;
-      border-radius: 12px;
-      padding: 50px 40px;
-      box-shadow: 0 0 25px rgba(255, 165, 0, 0.4);
-      width: 500px;   /* ✅ Increased to fit buttons */
-    }
 
-    /* ✅ Title */
-    .home-container h1 {
-      margin-bottom: 20px;
-      color: #FFA500;
-      font-size: 28px;
-      font-weight: bold;
-      text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
-    }
+/* ✅ Neon Card */
+.home-container {
+    text-align   : center;
+    background   : #1a1a1a;
+    border       : 2px solid #FFA500;
+    border-radius: 12px;
+    padding      : 50px 40px;
+    box-shadow   : 0 0 25px rgba(255, 165, 0, 0.4);
+    width        : 500px;
+    /* ✅ Increased to fit buttons */
+}
 
-    /* ✅ Divider */
-    .home-container hr {
-      border: none;
-      border-top: 2px solid #FFA500;
-      margin: 15px auto 30px;
-      width: 50%;
-    }
+/* ✅ Title */
+.home-container h1 {
+    margin-bottom: 20px;
+    color        : #FFA500;
+    font-size    : 28px;
+    font-weight  : bold;
+    text-shadow  : 0 0 10px rgba(255, 165, 0, 0.5);
+}
 
-    /* ✅ Links in One Row */
-    .links {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: nowrap; /* ✅ Prevent wrapping */
-    }
+/* ✅ Divider */
+.home-container hr {
+    border    : none;
+    border-top: 2px solid #FFA500;
+    margin    : 15px auto 30px;
+    width     : 50%;
+}
 
-    /* ✅ Buttons */
-    .links a {
-      background: transparent;
-      color: #FFA500;
-      border: 2px solid #FFA500;
-      padding: 10px 22px;
-      border-radius: 8px;
-      font-size: 18px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: all 0.3s ease-in-out;
-      box-shadow: 0 0 10px rgba(255, 165, 0, 0.2);
-    }
+/* ✅ Links in One Row */
+.links {
+    display        : flex;
+    justify-content: center;
+    gap            : 25px;
+    flex-wrap      : nowrap;
+    /* ✅ Prevent wrapping */
+}
 
-    /* ✅ Hover Glow */
-    .links a:hover {
-      background: #FFA500;
-      color: #000;
-      box-shadow: 0 0 20px #FFA500;
-      transform: translateY(-2px);
-    }
+/* ✅ Buttons */
+.links a {
+    background     : transparent;
+    color          : #FFA500;
+    border         : 2px solid #FFA500;
+    padding        : 10px 22px;
+    border-radius  : 8px;
+    font-size      : 18px;
+    font-weight    : bold;
+    text-decoration: none;
+    transition     : all 0.3s ease-in-out;
+    box-shadow     : 0 0 10px rgba(255, 165, 0, 0.2);
+}
+
+/* ✅ Hover Glow */
+.links a:hover {
+    background: #FFA500;
+    color     : #000;
+    box-shadow: 0 0 20px #FFA500;
+    transform : translateY(-2px);
+}
 
 /* ✅ Full Header Container */
 .header-wrapper {
-    display: flex;
-    flex-direction: column;       /* Stack Title then Nav */
-    align-items: center;          /* Center horizontally */
+    display        : flex;
+    flex-direction : column;
+    /* Stack Title then Nav */
+    align-items    : center;
+    /* Center horizontally */
     justify-content: center;
-    background: #1a1a1a;
-    padding: 25px 0 15px 0;
-    border-bottom: 2px solid #FFA500;
-    margin-bottom: 30px;
+    background     : #1a1a1a;
+    padding        : 25px 0 15px 0;
+    border-bottom  : 2px solid #FFA500;
+    margin-bottom  : 30px;
 }
 
 /* ✅ Centered Title */
 .header-title {
-    color: #FFA500;
-    font-size: 36px;
+    color      : #FFA500;
+    font-size  : 36px;
     font-weight: bold;
-    margin: 0 0 15px 0;
-    text-align: center;
+    margin     : 0 0 15px 0;
+    text-align : center;
 }
 
 /* ✅ Nav Container */
 .header-nav {
-    display: flex;
+    display        : flex;
     justify-content: center;
-    gap: 40px;
+    gap            : 40px;
 }
 
 /* ✅ Nav Links */
 .header-nav a {
-    color: #FFA500;
-    font-size: 18px;
-    font-weight: bold;
+    color          : #FFA500;
+    font-size      : 18px;
+    font-weight    : bold;
     text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: background 0.3s, color 0.3s;
+    padding        : 8px 15px;
+    border-radius  : 5px;
+    transition     : background 0.3s, color 0.3s;
 }
 
 /* ✅ Hover and Active States */
 .header-nav a:hover {
     background: #FFA500;
-    color: #000;
+    color     : #000;
 }
+
 .header-nav a.active {
     background: #ff7b00;
-    color: #fff;
+    color     : #fff;
 }
 
 /* Faculty Table Styling */
 .faculty-container {
-    width: 80%;
-    margin: 0 auto;
-    background: #1a1a1a;
-    padding: 25px;
+    width        : 80%;
+    margin       : 0 auto;
+    background   : #1a1a1a;
+    padding      : 25px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(255, 165, 0, 0.2);
+    box-shadow   : 0 0 15px rgba(255, 165, 0, 0.2);
 }
 
 .faculty-container h1 {
-    text-align: center;
+    text-align   : center;
     margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #FFA500;
+    font-size    : 24px;
+    font-weight  : bold;
+    color        : #FFA500;
 }
 
 .faculty-table {
@@ -153,19 +160,19 @@
 }
 
 .faculty-table th {
-    background: #FFA500;
-    color: #000;
+    background : #FFA500;
+    color      : #000;
     font-weight: bold;
-    padding: 12px;
-    text-align: center;
-    font-size: 16px;
+    padding    : 12px;
+    text-align : center;
+    font-size  : 16px;
 }
 
 .faculty-table td {
-    background: #1c1c1c;
-    color: #FFA500;
-    padding: 12px;
-    text-align: center;
+    background   : #1c1c1c;
+    color        : #FFA500;
+    padding      : 12px;
+    text-align   : center;
     border-bottom: 1px solid #333;
 }
 
@@ -206,21 +213,22 @@
 
 /* alumni Table Styling */
 .alumni-container {
-    width: 80%;
-    margin: 0 auto;
-    background: #1a1a1a;
-    padding: 25px;
+    width        : 80%;
+    margin       : 0 auto;
+    background   : #1a1a1a;
+    padding      : 25px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(255, 165, 0, 0.2);
+    box-shadow   : 0 0 15px rgba(255, 165, 0, 0.2);
 }
 
 .alumni-container h1 {
-    text-align: center;
+    text-align   : center;
     margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #FFA500;
+    font-size    : 24px;
+    font-weight  : bold;
+    color        : #FFA500;
 }
+
 .alumni-table {
     width          : 100%;
     border-collapse: collapse;
@@ -228,19 +236,19 @@
 }
 
 .alumni-table th {
-    background: #FFA500;
-    color: #000;
+    background : #FFA500;
+    color      : #000;
     font-weight: bold;
-    padding: 12px;
-    text-align: center;
-    font-size: 16px;
+    padding    : 12px;
+    text-align : center;
+    font-size  : 16px;
 }
 
 .alumni-table td {
-    background: #1c1c1c;
-    color: #FFA500;
-    padding: 12px;
-    text-align: center;
+    background   : #1c1c1c;
+    color        : #FFA500;
+    padding      : 12px;
+    text-align   : center;
     border-bottom: 1px solid #333;
 }
 
@@ -309,75 +317,77 @@ header {
 
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: #121212;
-    color: #FFA500;
+    background : #121212;
+    color      : #FFA500;
     line-height: 1.6;
 }
 
 /* ✅ Fix Navigation Alignment Completely */
 header {
-    background: #1a1a1a;
-    padding: 15px 0;
+    background   : #1a1a1a;
+    padding      : 15px 0;
     margin-bottom: 30px;
-    text-align: center;
+    text-align   : center;
 }
 
 /* ✅ Ensure "Faculty" heading is centered and styled */
 header h1 {
-    color: #FFA500;
-    font-size: 28px;
-    font-weight: bold;
+    color        : #FFA500;
+    font-size    : 28px;
+    font-weight  : bold;
     margin-bottom: 10px;
 }
 
 
 /* ✅ Header Container */
 .header-container {
-    display: flex;
-    flex-direction: column;  /* Stack title above nav */
-    align-items: center;     /* Center horizontally */
+    display        : flex;
+    flex-direction : column;
+    /* Stack title above nav */
+    align-items    : center;
+    /* Center horizontally */
     justify-content: center;
-    background: #1a1a1a;
-    padding: 20px 0;
-    border-bottom: 2px solid #FFA500;
+    background     : #1a1a1a;
+    padding        : 20px 0;
+    border-bottom  : 2px solid #FFA500;
 }
 
 /* ✅ Title Styling */
 .page-title {
-    font-size: 36px;
+    font-size  : 36px;
     font-weight: bold;
-    color: #FFA500;
-    margin: 0 0 10px 0;
-    text-align: center;
+    color      : #FFA500;
+    margin     : 0 0 10px 0;
+    text-align : center;
 }
 
 /* ✅ Navigation Bar Center */
 .nav-bar {
-    display: flex;
+    display        : flex;
     justify-content: center;
-    gap: 40px;
-    margin-top: 5px;
+    gap            : 40px;
+    margin-top     : 5px;
 }
 
 /* ✅ Nav Links */
 .nav-bar a {
-    color: #FFA500;
-    font-size: 18px;
-    font-weight: bold;
+    color          : #FFA500;
+    font-size      : 18px;
+    font-weight    : bold;
     text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: background 0.3s, color 0.3s;
+    padding        : 8px 15px;
+    border-radius  : 5px;
+    transition     : background 0.3s, color 0.3s;
 }
 
 .nav-bar a:hover {
     background: #FFA500;
-    color: #000;
+    color     : #000;
 }
 
 .nav-bar a.active {
     background: #ff7b00;
-    color: #fff;
+    color     : #fff;
 }
 
 
@@ -438,27 +448,29 @@ input[type="checkbox"]:checked~input[type="checkbox"] {
 */
 /* Hide the default radio circle */
 input[type="radio"] {
-    appearance: none;          /* Remove default browser styling */
+    appearance        : none;
+    /* Remove default browser styling */
     -webkit-appearance: none;
-    -moz-appearance: none;
-    outline: none;
-    width: 0;
-    height: 0;
-    margin: 0;
-    padding: 0;
-    position: absolute;        /* Completely removes it from view */
-    display: none;
+    -moz-appearance   : none;
+    outline           : none;
+    width             : 0;
+    height            : 0;
+    margin            : 0;
+    padding           : 0;
+    position          : absolute;
+    /* Completely removes it from view */
+    display           : none;
 }
 
 /* Custom Selection Box */
 .styled-checkbox+span {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #FFA500;
-    background: #1c1c1c;
+    width        : 20px;
+    height       : 20px;
+    border       : 2px solid #FFA500;
+    background   : #1c1c1c;
     border-radius: 3px;
-    cursor: pointer;
-    display: inline-block;
+    cursor       : pointer;
+    display      : inline-block;
 }
 
 .styled-checkbox:checked+span {
@@ -489,17 +501,20 @@ input[type="radio"] {
 
 /* Fix: Styled Checkbox (Visible on Dark Background) */
 .styled-checkbox+span {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #FFA500;      /* Orange border */
-    background: #1c1c1c;            /* Dark gray for unchecked */
+    display   : inline-block;
+    width     : 20px;
+    height    : 20px;
+    border    : 2px solid #FFA500;
+    /* Orange border */
+    background: #1c1c1c;
+    /* Dark gray for unchecked */
     transition: background 0.3s, border 0.3s;
 }
 
 .styled-checkbox:checked+span {
-    background: #FFA500;            /* Orange when checked */
-    border: 2px solid #FFA500;
+    background: #FFA500;
+    /* Orange when checked */
+    border    : 2px solid #FFA500;
 }
 
 /*
@@ -653,38 +668,41 @@ input[type="radio"] {
 }
 */
 #chatbotButton {
-    display: none; /* hidden on load */
+    display: none;
+    /* hidden on load */
 }
 
 #chatContainer {
-    display: none; /* hidden on load */
-    background: #1c1c1c;
-    border: 1px solid #FFA500;
-    padding: 20px;
+    display      : none;
+    /* hidden on load */
+    background   : #1c1c1c;
+    border       : 1px solid #FFA500;
+    padding      : 20px;
     border-radius: 8px;
-    width: 80%;
-    max-width: 700px;
-    margin: 20px auto;
-    box-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
+    width        : 80%;
+    max-width    : 700px;
+    margin       : 20px auto;
+    box-shadow   : 0 0 10px rgba(255, 165, 0, 0.3);
 }
 
 #chatbotButton:hover {
     background: #ff7b00;
-    color: #fff;
+    color     : #fff;
 }
 
 .chat-output {
-    width: 100%;
-    background: #000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    width        : 100%;
+    background   : #000;
+    color        : #FFA500;
+    border       : 1px solid #FFA500;
     border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
-    height: 300px;
-    overflow-y: auto;
-    font-family: 'Courier New', monospace;
-    white-space: pre-line;  /* ✅ preserves new lines */
+    padding      : 10px;
+    margin-top   : 10px;
+    height       : 300px;
+    overflow-y   : auto;
+    font-family  : 'Courier New', monospace;
+    white-space  : pre-line;
+    /* ✅ preserves new lines */
 }
 
 /* ✅ Chat Container Centered & Clean */
@@ -702,37 +720,39 @@ input[type="radio"] {
 
 /* ✅ Align Input + Buttons Horizontally */
 .chat-controls {
-    display: flex;
+    display        : flex;
     justify-content: center;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 10px;
+    align-items    : center;
+    gap            : 15px;
+    margin-bottom  : 10px;
 }
+
 /* ✅ Input Styling */
 #questionInput {
-    flex: 1;
-    max-width: 400px;
-    padding: 10px;
-    background: #000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    flex         : 1;
+    max-width    : 400px;
+    padding      : 10px;
+    background   : #000;
+    color        : #FFA500;
+    border       : 1px solid #FFA500;
     border-radius: 5px;
 }
 
 textarea {
-    width: 100%;
-    background: #000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
-    padding: 10px;
+    width        : 100%;
+    background   : #000;
+    color        : #FFA500;
+    border       : 1px solid #FFA500;
+    padding      : 10px;
     border-radius: 3px;
-    margin-top: 10px;
+    margin-top   : 10px;
 }
 
 
 /* Fix: Ensure Chat Button Text Always Visible */
 .faculty-chat #chatbotButton {
-    color: #000;                    /* Black text on orange background */
+    color: #000;
+    /* Black text on orange background */
 }
 
 /*
@@ -741,11 +761,11 @@ textarea {
 
 /* Chat Button */
 #chatbotButton {
-    display: inline-block;
-    background: #FFA500;
-    color: #000;
-    font-weight: bold;
-    padding: 10px 25px;
+    display      : inline-block;
+    background   : #FFA500;
+    color        : #000;
+    font-weight  : bold;
+    padding      : 10px 25px;
     border-radius: 5px;
     margin-bottom: 20px;
 }
@@ -753,7 +773,7 @@ textarea {
 /* Fix: Selected Professor Label */
 #chatbotButton:disabled {
     background: #555;
-    color: #FFA500;
+    color     : #FFA500;
 }
 
 /*
@@ -794,13 +814,13 @@ textarea {
 /* Center the Chat Section Fully */
 /* ✅ Chat Section Properly Centered */
 .faculty-chat {
-    width: 80%;
-    margin: 40px auto;
-    background: #1a1a1a;
-    padding: 20px;
+    width        : 80%;
+    margin       : 40px auto;
+    background   : #1a1a1a;
+    padding      : 20px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(255, 165, 0, 0.2);
-    text-align: center;
+    box-shadow   : 0 0 15px rgba(255, 165, 0, 0.2);
+    text-align   : center;
 }
 
 .alumni-chat {
@@ -835,60 +855,66 @@ textarea {
 
 /* Buttons */
 button {
-    margin: 5px;
-    padding: 10px 20px;
-    border: none;
+    margin       : 5px;
+    padding      : 10px 20px;
+    border       : none;
     border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
+    cursor       : pointer;
+    font-weight  : bold;
 }
 
 /* ✅ Send & Reset Buttons */
-#sendBtn, #resetBtn {
-    min-width: 100px;
-    padding: 10px;
-    font-weight: bold;
-    border: none;
+#sendBtn,
+#resetBtn {
+    min-width    : 100px;
+    padding      : 10px;
+    font-weight  : bold;
+    border       : none;
     border-radius: 5px;
-    cursor: pointer;
+    cursor       : pointer;
 }
+
 #sendBtn {
     background: #FFA500;
-    color: #000;
+    color     : #000;
 }
+
 #sendBtn:hover {
     background: #ff7b00;
-    color: #fff;
+    color     : #fff;
 }
+
 #resetBtn {
     background: #ff3b3b;
-    color: #fff;
+    color     : #fff;
 }
+
 #resetBtn:hover {
     background: #ff0000;
 }
 
 /* ✅ Textarea Clean */
 #outputTextarea {
-    width: 100%;
-    background: #000;
-    color: #FFA500;
-    border: 1px solid #FFA500;
+    width        : 100%;
+    background   : #000;
+    color        : #FFA500;
+    border       : 1px solid #FFA500;
     border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
+    padding      : 10px;
+    margin-top   : 10px;
 }
 
 code {
-    background: #222;
-    color: #ffcc00;
-    padding: 2px 4px;
+    background   : #222;
+    color        : #ffcc00;
+    padding      : 2px 4px;
     border-radius: 3px;
 }
+
 pre {
-    background: #111;
-    color: #00ffcc;
-    padding: 10px;
+    background   : #111;
+    color        : #00ffcc;
+    padding      : 10px;
     border-radius: 5px;
-    overflow-x: auto;
+    overflow-x   : auto;
 }
