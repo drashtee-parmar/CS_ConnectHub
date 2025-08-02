@@ -1,172 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="static/styles.css" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="static/styles.css"/>
     <title>Student-Career Advisor</title>
-    <style>
-      #chatbotButton {
-        display: none;
-        margin-top: 15px;
-        align-items: center;
-        /* Horizontal center alignment */
+    <!--    <style>-->
+    <!--      #chatbotButton {-->
+    <!--        display: none;-->
+    <!--        margin-top: 15px;-->
+    <!--        align-items: center;-->
+    <!--        /* Horizontal center alignment */-->
 
-        justify-content: center;
-      }
+    <!--        justify-content: center;-->
+    <!--      }-->
 
-      #chatContainer {
-        display: none;
-        border: 1px solid black;
-        width: 70%;
-        max-width: 800px;
-        align-items: center;
-        /* Optional: This ensures that it doesn't get too wide */
+    <!--      #chatContainer {-->
+    <!--        display: none;-->
+    <!--        border: 1px solid black;-->
+    <!--        width: 70%;-->
+    <!--        max-width: 800px;-->
+    <!--        align-items: center;-->
+    <!--        /* Optional: This ensures that it doesn't get too wide */-->
 
-        padding: 10px;
-        margin-top: 15px;
-      }
+    <!--        padding: 10px;-->
+    <!--        margin-top: 15px;-->
+    <!--      }-->
 
-      .input_inlineBlock {
-        display: inline-block;
-        width: 100%;
-        /* Width for the input */
-      }
+    <!--      .input_inlineBlock {-->
+    <!--        display: inline-block;-->
+    <!--        width: 100%;-->
+    <!--        /* Width for the input */-->
+    <!--      }-->
 
-      .button_inlineBlock {
-        display: inline-block;
-        width: 150px;
-        /* Width for the button */
-      }
+    <!--      .button_inlineBlock {-->
+    <!--        display: inline-block;-->
+    <!--        width: 150px;-->
+    <!--        /* Width for the button */-->
+    <!--      }-->
 
-      .inlineBlock {
-        display: inline-block;
-      }
-    </style>
+    <!--      .inlineBlock {-->
+    <!--        display: inline-block;-->
+    <!--      }-->
+    <!--    </style>-->
 
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
-  </head>
+</head>
 
-  <body class="gradient-background">
-    <header>
-      <h1>Student-Career Advisor</h1>
-
-      <nav>
-        <a href="/">Home</a>
+<body class="gradient-background">
+<header class="header-wrapper">
+    <h1 class="header-title">Student-Career Advisor</h1>
+    <nav class="header-nav">
+        <a href="/" class="active">Home</a>
         <a href="faculty">Faculty</a>
         <a href="alumni">Alumni</a>
         <a href="students">Students</a>
-      </nav>
-    </header>
-    <!-- Page-specific content here -->
+    </nav>
+</header>
+<!-- Page-specific content here -->
 
-    <div class="faculty-container">
-      <h1>MSCS Students - Career Advisor</h1>
-      <table class="faculty-table">
+<div class="faculty-container">
+    <h1>MSCS Students - Career Advisor</h1>
+    <table class="faculty-table">
         <thead>
-          <tr>
+        <tr>
             <th>Select</th>
             <th>Career Advisor Name</th>
             <th>Email</th>
             <th>Carrer Advisor</th>
-          </tr>
+        </tr>
         </thead>
         <tbody>
-          <tr>
+        <tr>
             <td>
-              <label>
-                <input
-                  type="radio"
-                  name="faculty-select"
-                  value="Ashley Nurse"
-                  onclick="showChatbot(this.value)"
-                  class="styled-checkbox"
-                />
-                <span></span>
-              </label>
+                <label>
+                    <input
+                            type="radio"
+                            name="faculty-select"
+                            value="Ashley Nurse"
+                            onclick="showChatbot(this.value)"
+                            class="styled-checkbox"
+                    />
+                    <span></span>
+                </label>
             </td>
             <td>Ashley Nurse</td>
             <td>sle123@kennesaw.edu</td>
             <td>Resume Building</td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td>
-              <label>
-                <input
-                  type="radio"
-                  name="faculty-select"
-                  value="Nasiya Sherif"
-                  onclick="showChatbot(this.value)"
-                  class="styled-checkbox"
-                />
-                <span></span>
-              </label>
+                <label>
+                    <input
+                            type="radio"
+                            name="faculty-select"
+                            value="Nasiya Sherif"
+                            onclick="showChatbot(this.value)"
+                            class="styled-checkbox"
+                    />
+                    <span></span>
+                </label>
             </td>
             <td>Nasiya Sherif</td>
             <td>nsherif@kennesaw.edu</td>
             <td>Career Advising</td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td>
-              <label>
-                <input
-                  type="radio"
-                  name="faculty-select"
-                  value="Alex Rodger"
-                  onclick="showChatbot(this.value)"
-                  class="styled-checkbox"
-                />
-                <span></span>
-              </label>
+                <label>
+                    <input
+                            type="radio"
+                            name="faculty-select"
+                            value="Alex Rodger"
+                            onclick="showChatbot(this.value)"
+                            class="styled-checkbox"
+                    />
+                    <span></span>
+                </label>
             </td>
             <td>Alex Rodger</td>
             <td>aroger8@kennesaw.edu</td>
             <td>Personality Development</td>
-          </tr>
+        </tr>
         </tbody>
-      </table>
-    </div>
-    <div class="students-chat">
-      <button id="chatbotButton" onclick="toggleChat()">
+    </table>
+</div>
+<div class="students-chat">
+    <button id="chatbotButton" onclick="toggleChat()">
         Chat with Selected Professor
-      </button>
+    </button>
 
-      <div id="chatContainer">
+    <div id="chatContainer">
         <input
-          id="questionInput"
-          type="text"
-          placeholder="Enter your question here..."
-          class="input_inlineBlock"
-          style="width: 310px"
+                id="questionInput"
+                type="text"
+                placeholder="Enter your question here..."
+                class="input_inlineBlock"
+                style="width: 310px"
         />
         <!-- <button class="inlineBlock" onclick="retrieveInfo()">Send</button> -->
         <button
-          class="button_inlineBlock"
-          onclick="populateTextarea()"
-          id="sendBtn"
+                class="button_inlineBlock"
+                onclick="populateTextarea()"
+                id="sendBtn"
         >
-          Send
+            Send
         </button>
         <button
-          class="button_inlineBlock"
-          id="resetBtn"
-          onClick="window.location.reload(true)"
+                class="button_inlineBlock"
+                id="resetBtn"
+                onClick="window.location.reload(true)"
         >
-          Reset
+            Reset
         </button>
         <!--<input type = "button" value= "Reset" onClick= "window.location.reload(true)"></input>-->
-        <br /><br />
+        <br/><br/>
         <textarea
-          id="outputTextarea"
-          rows="15"
-          cols="83"
-          placeholder="Output here..."
+                id="outputTextarea"
+                rows="15"
+                cols="83"
+                placeholder="Output here..."
         ></textarea>
-      </div>
     </div>
+</div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentPath = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".header-nav a").forEach(link => {
+        if (link.getAttribute("href") === currentPath) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    });
+
+
       function toggleChatbotButton() {
         document.getElementById("chatbotButton").style.display = "block";
       }
@@ -255,6 +267,8 @@
           url: "/students",
         });
       }
-    </script>
-  </body>
+
+
+</script>
+</body>
 </html>

@@ -5,52 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="static/styles.css"/>
     <title>Alumni</title>
-    <style>
-      #chatbotButton {
-        display: none;
-        margin-top: 15px;
-        align-items: center;
-        justify-content: center;
-      }
+    <!--    <style>-->
+    <!--      #chatbotButton {-->
+    <!--        display: none;-->
+    <!--        margin-top: 15px;-->
+    <!--        align-items: center;-->
+    <!--        justify-content: center;-->
+    <!--      }-->
 
-      #chatContainer {
-        display: none;
-        border: 1px solid black;
-        width: 70%;
-        max-width: 800px;
-        align-items: center;
-        /* Optional: This ensures that it doesn't get too wide */
+    <!--      #chatContainer {-->
+    <!--        display: none;-->
+    <!--        border: 1px solid black;-->
+    <!--        width: 70%;-->
+    <!--        max-width: 800px;-->
+    <!--        align-items: center;-->
+    <!--        /* Optional: This ensures that it doesn't get too wide */-->
 
-        padding: 10px;
-        margin-top: 15px;
-      }
+    <!--        padding: 10px;-->
+    <!--        margin-top: 15px;-->
+    <!--      }-->
 
-      .input_inlineBlock {
-        display: inline-block;
-        width: 100%;
-        /* Width for the input */
-      }
+    <!--      .input_inlineBlock {-->
+    <!--        display: inline-block;-->
+    <!--        width: 100%;-->
+    <!--        /* Width for the input */-->
+    <!--      }-->
 
-      .button_inlineBlock {
-        display: inline-block;
-        width: 150px;
-        /* Width for the button */
-      }
+    <!--      .button_inlineBlock {-->
+    <!--        display: inline-block;-->
+    <!--        width: 150px;-->
+    <!--        /* Width for the button */-->
+    <!--      }-->
 
-      .inlineBlock {
-        display: inline-block;
-      }
+    <!--      .inlineBlock {-->
+    <!--        display: inline-block;-->
+    <!--      }-->
 
-    </style>
+    <!--    </style>-->
 
     <!-- Add your styles and scripts as needed -->
 </head>
 
 <body class="gradient-background">
-<header>
-    <h1>Alumni</h1>
-    <nav>
-        <a href="/">Home</a>
+
+<header class="header-wrapper">
+    <h1 class="header-title">Alumni</h1>
+    <nav class="header-nav">
+        <a href="/" class="active">Home</a>
         <a href="faculty">Faculty</a>
         <a href="alumni">Alumni</a>
         <a href="students">Students</a>
@@ -135,11 +136,11 @@
 
     <div id="chatContainer">
         <input
-            id="questionInput"
-            type="text"
-            placeholder="Enter your question here..."
-            class="input_inlineBlock"
-            style="width: 310px"
+                id="questionInput"
+                type="text"
+                placeholder="Enter your question here..."
+                class="input_inlineBlock"
+                style="width: 310px"
         />
         <button
                 class="button_inlineBlock"
@@ -167,6 +168,20 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentPath = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".header-nav a").forEach(link => {
+        if (link.getAttribute("href") === currentPath) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    });
+
+
+
       function toggleChatbotButton() {
         document.getElementById("chatbotButton").style.display = "block";
       }
@@ -255,6 +270,7 @@
           url: "/alumni",
         });
       }
+
 
 </script>
 </body>

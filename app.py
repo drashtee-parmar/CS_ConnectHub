@@ -1,4 +1,8 @@
+import openai
+import os
 from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, render_template, request
+import openai
 
 app = Flask(__name__)
 
@@ -21,14 +25,19 @@ alumni_members = [
     {"name": "Alex hales", "Working at microsfot": "Graduated in 2000"},
     {"name": "Agith Agarkar ", "Working at Facebook": "Graduated in 2004"},
 ]
-from flask import Flask, render_template, request
-import openai
+
 
 app = Flask(__name__)
 
 # Set your OpenAI API key
-openai.api_key = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
+
+# openai.api_key = ""
+# openai.api_key = os.getenv("OPENAI_API_KEY")
+# if not api_key:
+#     print("OpenAI API key not found. Please set the OPENAI_API_KEY environment variable.")
+#     exit(1)
 
 def conversation(messages, temperature=0.7):
     response = openai.ChatCompletion.create(

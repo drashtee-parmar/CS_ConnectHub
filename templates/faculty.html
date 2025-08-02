@@ -1,172 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="static/styles.css" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="static/styles.css"/>
     <title>Faculty</title>
-    <style>
-      #chatbotButton {
-        display: none;
-        margin-top: 15px;
-        align-items: center;
-        /* Horizontal center alignment */
+    <!--    <style>-->
+    <!--      #chatbotButton {-->
+    <!--        display: none;-->
+    <!--        margin-top: 15px;-->
+    <!--        align-items: center;-->
+    <!--        /* Horizontal center alignment */-->
 
-        justify-content: center;
-      }
+    <!--        justify-content: center;-->
+    <!--      }-->
 
-      #chatContainer {
-        display: none;
-        border: 1px solid black;
-        width: 70%;
-        max-width: 800px;
-        align-items: center;
-        /* Optional: This ensures that it doesn't get too wide */
+    <!--      #chatContainer {-->
+    <!--        display: none;-->
+    <!--        border: 1px solid black;-->
+    <!--        width: 70%;-->
+    <!--        max-width: 800px;-->
+    <!--        align-items: center;-->
+    <!--        /* Optional: This ensures that it doesn't get too wide */-->
 
-        padding: 10px;
-        margin-top: 15px;
-      }
+    <!--        padding: 10px;-->
+    <!--        margin-top: 15px;-->
+    <!--      }-->
 
-      .input_inlineBlock {
-        display: inline-block;
-        width: 100%;
-        /* Width for the input */
-      }
+    <!--      .input_inlineBlock {-->
+    <!--        display: inline-block;-->
+    <!--        width: 100%;-->
+    <!--        /* Width for the input */-->
+    <!--      }-->
 
-      .button_inlineBlock {
-        display: inline-block;
-        width: 150px;
-        /* Width for the button */
-      }
+    <!--      .button_inlineBlock {-->
+    <!--        display: inline-block;-->
+    <!--        width: 150px;-->
+    <!--        /* Width for the button */-->
+    <!--      }-->
 
-      .inlineBlock {
-        display: inline-block;
-      }
-    </style>
+    <!--      .inlineBlock {-->
+    <!--        display: inline-block;-->
+    <!--      }-->
+    <!--    </style>-->
 
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
-  </head>
+</head>
 
-  <body class="gradient-background">
-    <header>
-      <h1>Faculty</h1>
-
-      <nav>
-        <a href="/">Home</a>
+<body class="gradient-background">
+<header class="header-wrapper">
+    <h1 class="header-title">Faculty</h1>
+    <nav class="header-nav">
+        <a href="/" class="active">Home</a>
         <a href="faculty">Faculty</a>
         <a href="alumni">Alumni</a>
         <a href="students">Students</a>
-      </nav>
-    </header>
-    <!-- Page-specific content here -->
+    </nav>
+</header>
 
-    <div class="faculty-container">
-      <h1>MSCS Professors</h1>
-      <table class="faculty-table">
+<!-- Page-specific content here -->
+
+<div class="faculty-container">
+    <h1>MSCS Professors</h1>
+    <table class="faculty-table">
         <thead>
-          <tr>
+        <tr>
             <th>Select</th>
             <th>Professor Name</th>
             <th>Email</th>
             <th>Subject Taught</th>
-          </tr>
+        </tr>
         </thead>
         <tbody>
-          <tr>
+        <tr>
             <td>
-              <label>
-                <input
-                  type="radio"
-                  name="faculty-select"
-                  value="Yong shi"
-                  onclick="showChatbot(this.value)"
-                  class="styled-checkbox"
-                />
-                <span></span>
-              </label>
+                <label>
+                    <input
+                            type="radio"
+                            name="faculty-select"
+                            value="Yong shi"
+                            onclick="showChatbot(this.value)"
+                            class="styled-checkbox"
+                    />
+                    <span></span>
+                </label>
             </td>
             <td>Yong shi</td>
             <td>yshi5@kennesaw.edu</td>
             <td>Cloud Computing</td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td>
-              <label>
-                <input
-                  type="radio"
-                  name="faculty-select"
-                  value="Mahmut Karakaya"
-                  onclick="showChatbot(this.value)"
-                  class="styled-checkbox"
-                />
-                <span></span>
-              </label>
+                <label>
+                    <input
+                            type="radio"
+                            name="faculty-select"
+                            value="Mahmut Karakaya"
+                            onclick="showChatbot(this.value)"
+                            class="styled-checkbox"
+                    />
+                    <span></span>
+                </label>
             </td>
             <td>Mahmut Karakaya</td>
             <td>mkarakay@kennesaw.edu</td>
             <td>Machine Learning</td>
-          </tr>
-          <tr>
+        </tr>
+        <tr>
             <td>
-              <label>
-                <input
-                  type="radio"
-                  name="faculty-select"
-                  value="Alan Shaw"
-                  onclick="showChatbot(this.value)"
-                  class="styled-checkbox"
-                />
-                <span></span>
-              </label>
+                <label>
+                    <input
+                            type="radio"
+                            name="faculty-select"
+                            value="Alan Shaw"
+                            onclick="showChatbot(this.value)"
+                            class="styled-checkbox"
+                    />
+                    <span></span>
+                </label>
             </td>
             <td>Alan Shaw</td>
             <td>ashaw8@kennesaw.edu</td>
             <td>Information Retrieval</td>
-          </tr>
+        </tr>
         </tbody>
-      </table>
-    </div>
-    <div class="faculty-chat">
-      <button id="chatbotButton" onclick="toggleChat()">
+    </table>
+</div>
+<div class="faculty-chat">
+    <button id="chatbotButton" onclick="toggleChat()">
         Chat with Selected Professor
-      </button>
-
-      <div id="chatContainer">
-        <input
-          id="questionInput"
-          type="text"
-          placeholder="Enter your question here..."
-          class="input_inlineBlock"
-          style="width: 310px"
-        />
-        <!-- <button class="inlineBlock" onclick="retrieveInfo()">Send</button> -->
-        <button
-          class="button_inlineBlock"
-          onclick="populateTextarea()"
-          id="sendBtn"
-        >
-          Send
-        </button>
-        <button
-          class="button_inlineBlock"
-          id="resetBtn"
-          onClick="window.location.reload(true)"
-        >
-          Reset
-        </button>
-        <!-- <input type = "button" value= "Reset" onClick= "window.location.reload(true)"></input> -->
-        <br /><br />
-        <textarea
-          id="outputTextarea"
-          rows="15"
-          cols="83"
-          placeholder="Output here..."
-        ></textarea>
-      </div>
+    </button>
+    <div id="chatContainer">
+        <div class="chat-controls">
+            <input id="questionInput" type="text" placeholder="Enter your question here...">
+            <button id="sendBtn" onclick="populateTextarea()">Send</button>
+            <button id="resetBtn" onClick="window.location.reload(true)">Reset</button>
+        </div>
+        <textarea id="outputTextarea" rows="15" cols="83" placeholder="Output here..."></textarea>
     </div>
+    <!--      <div id="chatContainer">-->
+    <!--        <input-->
+    <!--          id="questionInput"-->
+    <!--          type="text"-->
+    <!--          placeholder="Enter your question here..."-->
+    <!--          class="input_inlineBlock"-->
+    <!--          style="width: 310px"-->
+    <!--        />-->
+    <!--        &lt;!&ndash; <button class="inlineBlock" onclick="retrieveInfo()">Send</button> &ndash;&gt;-->
+    <!--        <button-->
+    <!--          class="button_inlineBlock"-->
+    <!--          onclick="populateTextarea()"-->
+    <!--          id="sendBtn"-->
+    <!--        >-->
+    <!--          Send-->
+    <!--        </button>-->
+    <!--        <button-->
+    <!--          class="button_inlineBlock"-->
+    <!--          id="resetBtn"-->
+    <!--          onClick="window.location.reload(true)"-->
+    <!--        >-->
+    <!--          Reset-->
+    <!--        </button>-->
+    <!--        &lt;!&ndash; <input type = "button" value= "Reset" onClick= "window.location.reload(true)"></input> &ndash;&gt;-->
+    <!--        <br /><br />-->
+    <!--        -->
+    <!--        <textarea-->
+    <!--          id="outputTextarea"-->
+    <!--          rows="15"-->
+    <!--          cols="83"-->
+    <!--          placeholder="Output here..."-->
+    <!--        ></textarea>-->
+    <!--      </div>-->
+</div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentPath = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".header-nav a").forEach(link => {
+        if (link.getAttribute("href") === currentPath) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    });
+
       function toggleChatbotButton() {
         document.getElementById("chatbotButton").style.display = "block";
       }
@@ -187,10 +206,13 @@
       }
 
       function showChatbot(professorInfo) {
-        let chatbotButton = document.getElementById("chatbotButton");
-        chatbotButton.style.display = "block";
-        chatbotButton.innerHTML = "Chat with " + professorInfo;
+          let chatbotButton = document.getElementById("chatbotButton");
+          chatbotButton.style.display = "inline-block";  // ✅ Ensure it's visible
+          chatbotButton.style.backgroundColor = "#FFA500";
+          chatbotButton.style.color = "#000";
+          chatbotButton.innerHTML = "Chat with " + professorInfo;
       }
+
 
       /* document.getElementById('sendBtn').addEventListener('click', async () => {
             try {
@@ -260,6 +282,8 @@
           url: "/faculty",
         });
       }
-    </script>
-  </body>
+
+
+</script>
+</body>
 </html>
