@@ -266,65 +266,83 @@
 
       function populateTextarea() {
         const questionInput = document.getElementById("questionInput");
-        const outputTextarea = document.getElementById("outputTextarea");
+        const outputContainer = document.getElementById("outputContainer");
 
+        // ✅ Ensure a professor is selected
         const selectedRadio = document.querySelector(
           'input[name="faculty-select"]:checked'
         );
-        if (selectedRadio) {
-          const selectedRow = selectedRadio.closest("tr");
-          const professorName = selectedRow.cells[1].textContent;
-          const subjectTaught = selectedRow.cells[3].textContent;
-          const questionInputtext = questionInput.value;
-
-          var server_data = [
-            { "Professor Name": professorName },
-            { "Subject Taught": subjectTaught },
-            { Question: questionInputtext },
-          ];
-
-          <!--                $.ajax({-->
-          <!--                    type: "POST",-->
-          <!--                    url: "/facultychat",-->
-          <!--                    data: JSON.stringify(server_data),-->
-          <!--                    contentType: "application/json",-->
-          <!--                    dataType: "json",-->
-          <!--                }).done(function (data) {-->
-          <!--                    outputTextarea.value += `Question: ${data["user_message"]}\n`;-->
-          <!--                    outputTextarea.value += `Response: ${data["assistant_response"]}\n\n`;-->
-
-          <!--                    // ✅ Clear the input after sending-->
-          <!--                    questionInput.value = "";-->
-          <!--                });-->
-          $.ajax({
-            type: "POST",
-            url: "/facultychat",
-            data: JSON.stringify(server_data),
-            contentType: "application/json",
-            dataType: "json",
-          }).done(function (data) {
-            const question = `<strong>Question:</strong> ${data["user_message"]}<br>`;
-            const response = `<strong>Response:</strong><br>${formatResponse(
-              data["assistant_response"]
-            )}`;
-            // Prepend the latest entry on top
-
-            $("#outputContainer").prepend(
-              `<div class="chat-entry">${question}${response}<hr></div>`
-            );
-            $("#questionInput").val(""); // ✅ Clear input after sending
-          });
-        } else {
-          outputTextarea.value = "Please select a professor first.";
+        if (!selectedRadio) {
+          alert("Please select a professor first.");
+          return;
         }
+
+        // ✅ Get selected professor details
+        const selectedRow = selectedRadio.closest("tr");
+        const professorName = selectedRow.cells[1].textContent;
+        const subjectTaught = selectedRow.cells[3].textContent;
+        const questionInputtext = questionInput.value.trim();
+
+        // ✅ Prevent empty questions
+        if (!questionInputtext) return;
+
+        // ✅ Prepare data payload
+        const server_data = [
+          { "Professor Name": professorName },
+          { "Subject Taught": subjectTaught },
+          { Question: questionInputtext },
+        ];
+
+        // ✅ Send request to backend
+        $.ajax({
+          type: "POST",
+          url: "/facultychat",
+          data: JSON.stringify(server_data),
+          contentType: "application/json",
+          dataType: "json",
+        }).done(function (data) {
+          // ✅ Build chat entry without timestamps
+          const chatHTML = `
+            <div class="chat-entry">
+                <div class="question"><strong>Question:</strong> ${
+                  data["user_message"]
+                }</div>
+                <div class="response"><strong>Response:</strong><br>${formatResponse(
+                  data["assistant_response"]
+                )}</div>
+                <hr>
+            </div>
+        `;
+
+          // ✅ Prepend new messages to the top
+          outputContainer.insertAdjacentHTML("afterbegin", chatHTML);
+
+          // ✅ Clear input field after sending
+          questionInput.value = "";
+        });
       }
+
+      <!--                $.ajax({-->
+      <!--                    type: "POST",-->
+      <!--                    url: "/facultychat",-->
+      <!--                    data: JSON.stringify(server_data),-->
+      <!--                    contentType: "application/json",-->
+      <!--                    dataType: "json",-->
+      <!--                }).done(function (data) {-->
+      <!--                    outputTextarea.value += `Question: ${data["user_message"]}\n`;-->
+      <!--                    outputTextarea.value += `Response: ${data["assistant_response"]}\n\n`;-->
+
+      <!--                    // ✅ Clear the input after sending-->
+      <!--                    questionInput.value = "";-->
+      <!--                });-->
+
       function formatResponse(text) {
-          return text
-              .replace(/```([\s\S]*?)```/g, "<pre><code>$1</code></pre>")
-              .replace(/`([^`]+)`/g, "<code>$1</code>")
-              .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-              .replace(/### (.*?)\n/g, "<h4>$1</h4>")
-              .replace(/\n/g, "<br>");
+        return text
+          .replace(/```([\s\S]*?)```/g, "<pre><code>$1</code></pre>")
+          .replace(/`([^`]+)`/g, "<code>$1</code>")
+          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+          .replace(/### (.*?)\n/g, "<h4>$1</h4>")
+          .replace(/\n/g, "<br>");
       }
       <!--      // This function is to populate the textarea with the necessary information-->
       <!--      function populateTextarea() {-->

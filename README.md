@@ -82,7 +82,7 @@ pip install flask
 - Installing venv
 pip install python-dotenv
 ```
-pip install openai
+
 
 
 
