@@ -748,6 +748,42 @@ textarea {
     margin-top   : 10px;
 }
 
+/* Chat Output Box - Fixed Alignment */
+#outputContainer {
+    width        : 100%;
+    /* ✅ Fit within parent */
+    max-width    : 660px;
+    /* ✅ Align with chatContainer padding */
+    background   : #000;
+    color        : #FFA500;
+    border       : 1px solid #FFA500;
+    padding      : 15px;
+    border-radius: 5px;
+    overflow-y   : auto;
+    margin       : 10px auto;
+    box-sizing   : border-box;
+    /* ✅ Prevents overflow */
+}
+
+/* Chat Entries - Consistent Width */
+.chat-entry {
+    width        : 100%;
+    padding      : 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #333;
+}
+
+/* Question & Response Formatting */
+.chat-entry .question {
+    font-weight  : bold;
+    color        : #FFA500;
+    margin-bottom: 5px;
+}
+
+.chat-entry .response {
+    color      : #FFD580;
+    line-height: 1.5;
+}
 
 /* Fix: Ensure Chat Button Text Always Visible */
 .faculty-chat #chatbotButton {
