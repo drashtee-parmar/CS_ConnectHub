@@ -432,7 +432,9 @@ alumni_members = [
     {"name": "Agith Agarkar", "company": "Facebook", "graduation": "2004"},
 ]
 
-# GPT Conversation Function
+# ------------------------------
+# OpenAI Chat Handler
+# ------------------------------
 def conversation(messages, temperature=0.4):
     try:
         response = client.chat.completions.create(
@@ -446,7 +448,9 @@ def conversation(messages, temperature=0.4):
         print(f"OpenAI API Error: {e}")
         return "The chatbot was unable to process your request at this time."
 
-# Routes
+# ------------------------------
+# ROUTES
+# ------------------------------
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -463,77 +467,132 @@ def alumni():
 def students():
     return render_template("students.html", student=Student_advisor_members)
 
-# Chat Endpoints
+# ------------------------------
+# CHAT ENDPOINTS
+# ------------------------------
+
+# Faculty Chat API
 @app.route("/facultychat", methods=["POST"])
 def faculty_chat():
-    input_info = request.get_json()
-    question = input_info[2]["Question"]
-    faculty_name = input_info[0]["Professor Name"]
-    subject_name = input_info[1]["Subject Taught"]
+    data = request.get_json()
+    faculty_name = data[0].get("Professor Name", "Unknown Professor")
+    subject = data[1].get("Subject Taught", "Unknown Subject")
+    question = data[2].get("Question", "")
 
     context = [
-        {
-            "role": "system",
-            "content": f"{faculty_name} is a professor specializing in {subject_name}. "
-                       f"Provide clear and accurate answers to questions related to {subject_name}."
-        },
+        {"role": "system", "content": f"You are {faculty_name}, an expert in {subject}. Provide clear, professional answers."},
         {"role": "user", "content": question}
     ]
 
-    response = conversation(context)
-    return jsonify({
-        "faculty_name": faculty_name,
-        "user_message": question,
-        "assistant_response": response
-    })
+    answer = conversation(context)
+    return jsonify({"faculty_name": faculty_name, "user_message": question, "assistant_response": answer})
 
+# Alumni Chat API
 @app.route("/alumnichat", methods=["POST"])
 def alumni_chat():
-    input_info = request.get_json()
-    question = input_info[4]["Question"]
-    alumni_name = input_info[0]["Alumni Name"]
-    alumni_department = input_info[1]["Department"]
-    graduation_year = input_info[2]["Graduation Year"]
-    company_working = input_info[3]["Current Position"]
+    data = request.get_json()
+    alumni_name = data.get("alumni_name", "Unknown Alumni")
+    department = data.get("department", "Unknown Department")
+    grad_year = data.get("graduation_year", "Unknown Year")
+    company = data.get("company", "Unknown Company")
+    question = data.get("question", "")
 
     context = [
-        {
-            "role": "system",
-            "content": f"{alumni_name} graduated in {graduation_year} from {alumni_department}. "
-                       f"They currently work at {company_working} and can provide insights related to their career path."
-        },
+        {"role": "system", "content": f"You are {alumni_name}, a {department} graduate ({grad_year}), working at {company}. Share relevant insights."},
         {"role": "user", "content": question}
     ]
 
-    response = conversation(context)
-    return jsonify({
-        "alumni_name": alumni_name,
-        "user_message": question,
-        "assistant_response": response
-    })
+    answer = conversation(context)
+    return jsonify({"alumni_name": alumni_name, "user_message": question, "assistant_response": answer})
 
+# Student Advisor Chat API
 @app.route("/studentadvisorchat", methods=["POST"])
 def student_advisor_chat():
-    input_info = request.get_json()
-    question = input_info[2]["Question"]
-    advisor_name = input_info[0]["Advisor Name"]
-    career_advisor = input_info[1]["Carrer Advisor"]
+    data = request.get_json()
+    advisor_name = data.get("advisor_name", "Unknown Advisor")
+    expertise = data.get("career_advisor", "Career Guidance")
+    question = data.get("question", "")
 
     context = [
-        {
-            "role": "system",
-            "content": f"{advisor_name} is a career advisor specializing in {career_advisor}. "
-                       f"Answer questions related to {career_advisor} with clear and practical advice."
-        },
+        {"role": "system", "content": f"You are {advisor_name}, an expert in {expertise}. Provide concise, practical guidance."},
         {"role": "user", "content": question}
     ]
 
-    response = conversation(context)
-    return jsonify({
-        "advisor_name": advisor_name,
-        "user_message": question,
-        "assistant_response": response
-    })
+    answer = conversation(context)
+    return jsonify({"advisor_name": advisor_name, "user_message": question, "assistant_response": answer})
+
+
+# # Faculty Chat API
+# @app.route("/facultychat", methods=["POST"])
+# def faculty_chat():
+#     input_info = request.get_json()
+#     question = input_info[2]["Question"]
+#     faculty_name = input_info[0]["Professor Name"]
+#     subject_name = input_info[1]["Subject Taught"]
+
+#     context = [
+#         {
+#             "role": "system",
+#             "content": f"{faculty_name} is a professor specializing in {subject_name}. "
+#                        f"Provide clear and accurate answers to questions related to {subject_name}."
+#         },
+#         {"role": "user", "content": question}
+#     ]
+
+#     response = conversation(context)
+#     return jsonify({
+#         "faculty_name": faculty_name,
+#         "user_message": question,
+#         "assistant_response": response
+#     })
+
+# @app.route("/alumnichat", methods=["POST"])
+# def alumni_chat():
+#     input_info = request.get_json()
+#     question = input_info[4]["Question"]
+#     alumni_name = input_info[0]["Alumni Name"]
+#     alumni_department = input_info[1]["Department"]
+#     graduation_year = input_info[2]["Graduation Year"]
+#     company_working = input_info[3]["Current Position"]
+
+#     context = [
+#         {
+#             "role": "system",
+#             "content": f"{alumni_name} graduated in {graduation_year} from {alumni_department}. "
+#                        f"They currently work at {company_working} and can provide insights related to their career path."
+#         },
+#         {"role": "user", "content": question}
+#     ]
+
+#     response = conversation(context)
+#     return jsonify({
+#         "alumni_name": alumni_name,
+#         "user_message": question,
+#         "assistant_response": response
+#     })
+
+# @app.route("/studentadvisorchat", methods=["POST"])
+# def student_advisor_chat():
+#     input_info = request.get_json()
+#     question = input_info[2]["Question"]
+#     advisor_name = input_info[0]["Advisor Name"]
+#     career_advisor = input_info[1]["Carrer Advisor"]
+
+#     context = [
+#         {
+#             "role": "system",
+#             "content": f"{advisor_name} is a career advisor specializing in {career_advisor}. "
+#                        f"Answer questions related to {career_advisor} with clear and practical advice."
+#         },
+#         {"role": "user", "content": question}
+#     ]
+
+#     response = conversation(context)
+#     return jsonify({
+#         "advisor_name": advisor_name,
+#         "user_message": question,
+#         "assistant_response": response
+#     })
 
 # Teaching Assistant Chat Example
 @app.route("/teachingassistant")

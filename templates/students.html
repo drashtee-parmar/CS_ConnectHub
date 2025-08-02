@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="static/styles.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/styles.css" />
     <title>Student-Career Advisor</title>
     <!--    <style>-->
     <!--      #chatbotButton {-->
@@ -45,142 +45,129 @@
     <!--    </style>-->
 
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
-</head>
+  </head>
 
-<body class="gradient-background">
-<header class="header-wrapper">
-    <h1 class="header-title">Student-Career Advisor</h1>
-    <nav class="header-nav">
+  <body class="gradient-background">
+    <header class="header-wrapper">
+      <h1 class="header-title">Student-Career Advisor</h1>
+      <nav class="header-nav">
         <a href="/" class="active">Home</a>
         <a href="faculty">Faculty</a>
         <a href="alumni">Alumni</a>
         <a href="students">Students</a>
-    </nav>
-</header>
-<!-- Page-specific content here -->
+      </nav>
+    </header>
+    <!-- Page-specific content here -->
 
-<div class="faculty-container">
-    <h1>MSCS Students - Career Advisor</h1>
-    <table class="faculty-table">
+    <div class="advisor-container">
+      <h1>MSCS Students - Career Advisor</h1>
+      <table class="advisor-table">
         <thead>
-        <tr>
+          <tr>
             <th>Select</th>
             <th>Career Advisor Name</th>
             <th>Email</th>
-            <th>Carrer Advisor</th>
-        </tr>
+            <th>Career Advisor</th>
+          </tr>
         </thead>
         <tbody>
-        <tr>
+          <tr>
             <td>
-                <label>
-                    <input
-                            type="radio"
-                            name="faculty-select"
-                            value="Ashley Nurse"
-                            onclick="showChatbot(this.value)"
-                            class="styled-checkbox"
-                    />
-                    <span></span>
-                </label>
+              <label>
+                <input
+                  type="radio"
+                  name="advisor-select"
+                  value="Ashley Nurse"
+                  onclick="showChatbot(this.value)"
+                  class="styled-checkbox"
+                />
+                <span></span>
+              </label>
             </td>
             <td>Ashley Nurse</td>
             <td>sle123@kennesaw.edu</td>
             <td>Resume Building</td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
             <td>
-                <label>
-                    <input
-                            type="radio"
-                            name="faculty-select"
-                            value="Nasiya Sherif"
-                            onclick="showChatbot(this.value)"
-                            class="styled-checkbox"
-                    />
-                    <span></span>
-                </label>
+              <label>
+                <input
+                  type="radio"
+                  name="advisor-select"
+                  value="Nasiya Sherif"
+                  onclick="showChatbot(this.value)"
+                  class="styled-checkbox"
+                />
+                <span></span>
+              </label>
             </td>
             <td>Nasiya Sherif</td>
             <td>nsherif@kennesaw.edu</td>
             <td>Career Advising</td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
             <td>
-                <label>
-                    <input
-                            type="radio"
-                            name="faculty-select"
-                            value="Alex Rodger"
-                            onclick="showChatbot(this.value)"
-                            class="styled-checkbox"
-                    />
-                    <span></span>
-                </label>
+              <label>
+                <input
+                  type="radio"
+                  name="advisor-select"
+                  value="Alex Rodger"
+                  onclick="showChatbot(this.value)"
+                  class="styled-checkbox"
+                />
+                <span></span>
+              </label>
             </td>
             <td>Alex Rodger</td>
             <td>aroger8@kennesaw.edu</td>
             <td>Personality Development</td>
-        </tr>
+          </tr>
         </tbody>
-    </table>
-</div>
-<div class="students-chat">
-    <button id="chatbotButton" onclick="toggleChat()">
-        Chat with Selected Professor
-    </button>
-
-    <div id="chatContainer">
-        <input
-                id="questionInput"
-                type="text"
-                placeholder="Enter your question here..."
-                class="input_inlineBlock"
-                style="width: 310px"
-        />
-        <!-- <button class="inlineBlock" onclick="retrieveInfo()">Send</button> -->
-        <button
-                class="button_inlineBlock"
-                onclick="populateTextarea()"
-                id="sendBtn"
-        >
-            Send
-        </button>
-        <button
-                class="button_inlineBlock"
-                id="resetBtn"
-                onClick="window.location.reload(true)"
-        >
-            Reset
-        </button>
-        <!--<input type = "button" value= "Reset" onClick= "window.location.reload(true)"></input>-->
-        <br/><br/>
-        <textarea
-                id="outputTextarea"
-                rows="15"
-                cols="83"
-                placeholder="Output here..."
-        ></textarea>
+      </table>
     </div>
-</div>
+    <div class="students-chat">
+      <button id="chatbotButton" onclick="toggleChat()">
+        Chat with Selected Career Advisor
+      </button>
+      <div id="chatContainer">
+        <div class="chat-controls">
+          <input
+            id="questionInput"
+            type="text"
+            placeholder="Enter your question here..."
+          />
+          <button id="sendBtn" onclick="populateTextarea()">Send</button>
+          <button id="resetBtn" onClick="window.location.reload(true)">
+            Reset
+          </button>
+        </div>
+        <div id="outputContainer" class="chat-output"></div>
+      </div>
+    </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initially hide button and chat container
+        document.getElementById("chatbotButton").style.display = "none";
+        document.getElementById("chatContainer").style.display = "none";
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const currentPath = window.location.pathname.split("/").pop();
-      document.querySelectorAll(".header-nav a").forEach(link => {
-        if (link.getAttribute("href") === currentPath) {
-          link.classList.add("active");
-        } else {
-          link.classList.remove("active");
-        }
+        // Highlight active nav link
+        const currentPath = window.location.pathname.split("/").pop();
+        document.querySelectorAll(".header-nav a").forEach((link) => {
+          if (link.getAttribute("href") === currentPath) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
       });
-    });
 
-
-      function toggleChatbotButton() {
-        document.getElementById("chatbotButton").style.display = "block";
+      // Called when a advisor is selected
+      function showChatbot(advisorInfo) {
+        let chatbotButton = document.getElementById("chatbotButton");
+        chatbotButton.style.display = "inline-block"; // Show button
+        chatbotButton.innerHTML = "Chat with " + advisorInfo;
       }
 
       function toggleChat() {
@@ -189,7 +176,10 @@
           chatContainer.style.display === "none" ? "block" : "none";
       }
 
-      <!-- Not in use -->
+      function toggleChatbotButton() {
+        document.getElementById("chatbotButton").style.display = "block";
+      }
+
       function toggleChatbot() {
         var chatbot = document.getElementById("chat-interface");
         if (chatbot.style.display === "none" || chatbot.style.display === "") {
@@ -201,7 +191,9 @@
 
       function showChatbot(advisorInfo) {
         let chatbotButton = document.getElementById("chatbotButton");
-        chatbotButton.style.display = "block";
+        chatbotButton.style.display = "inline-block"; //Ensure it's visible
+        chatbotButton.style.backgroundColor = "#FFA500";
+        chatbotButton.style.color = "#000";
         chatbotButton.innerHTML = "Chat with " + advisorInfo;
       }
 
@@ -222,43 +214,69 @@
       // This function is to populate the textarea with the necessary information
       function populateTextarea() {
         const questionInput = document.getElementById("questionInput");
-        const outputTextarea = document.getElementById("outputTextarea");
+        const outputContainer = document.getElementById("outputContainer");
 
-        // Get the selected professor's row
+        // Ensure selected advisor is selected
         const selectedRadio = document.querySelector(
-          'input[name="faculty-select"]:checked'
+          'input[name="advisor-select"]:checked'
         );
-        if (selectedRadio) {
-          const selectedRow = selectedRadio.closest("tr");
+        if (!selectedRadio) {
+          alert("Please select a advisor first.");
+          return;
+        }
 
+        // Get selected advisor details
+          const selectedRow = selectedRadio.closest("tr");
           const advisorName = selectedRow.cells[1].textContent;
           const carrerAdvisor = selectedRow.cells[3].textContent;
           const questionInputtext = questionInput.value;
 
-          var server_data = [
+        // Prevent empty questions
+        if (!questionInputtext) return;
+
+        // Prepare data payload
+        const server_data = [
             { "Advisor Name": advisorName },
             { "Carrer Advisor": carrerAdvisor },
             { Question: questionInputtext },
           ];
 
-          $.ajax({
-            type: "POST",
-            url: "/studentadvisorchat",
-            data: JSON.stringify(server_data),
-            contentType: "application/json",
-            dataType: "json",
-          }).done(function (data) {
-            //$('#outputTextarea').html("<b>"Question:"</b>");
-            //$('#outputTextarea').text(data['assistant_response']).show()});
-            //text(data.output).show()});
-            outputTextarea.value += `Question: ${data["user_message"]}\n`;
-            outputTextarea.value += `Response: ${data["assistant_response"]}\n\n\n`;
+        // Send request to backend
+        $.ajax({
+          type: "POST",
+          url: "/facultychat",
+          data: JSON.stringify(server_data),
+          contentType: "application/json",
+          dataType: "json",
+        }).done(function (data) {
+          // Build chat entry without timestamps
+          const chatHTML = `
+            <div class="chat-entry">
+                <div class="question"><strong>Question:</strong> ${
+                  data["user_message"]
+                }</div>
+                <div class="response"><strong>Response:</strong><br>${formatResponse(
+                  data["assistant_response"]
+                )}</div>
+                <hr>
+            </div>
+        `;
 
-            console.log("Response Data:", data["assistant_response"]);
-          });
-        } else {
-          outputTextarea.value = "Please select a professor first.";
-        }
+          //Prepend new messages to the top
+          outputContainer.insertAdjacentHTML("afterbegin", chatHTML);
+
+          //Clear input field after sending
+          questionInput.value = "";
+        });
+      }
+
+      function formatResponse(text) {
+        return text
+          .replace(/```([\s\S]*?)```/g, "<pre><code>$1</code></pre>")
+          .replace(/`([^`]+)`/g, "<code>$1</code>")
+          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+          .replace(/### (.*?)\n/g, "<h4>$1</h4>")
+          .replace(/\n/g, "<br>");
       }
 
       function reset_students() {
@@ -267,8 +285,6 @@
           url: "/students",
         });
       }
-
-
-</script>
-</body>
+    </script>
+  </body>
 </html>
