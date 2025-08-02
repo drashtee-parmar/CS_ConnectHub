@@ -673,6 +673,20 @@ input[type="radio"] {
     color: #fff;
 }
 
+.chat-output {
+    width: 100%;
+    background: #000;
+    color: #FFA500;
+    border: 1px solid #FFA500;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    height: 300px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    white-space: pre-line;  /* ✅ preserves new lines */
+}
+
 /* ✅ Chat Container Centered & Clean */
 /*
 #chatContainer {
@@ -863,4 +877,18 @@ button {
     border-radius: 5px;
     padding: 10px;
     margin-top: 10px;
+}
+
+code {
+    background: #222;
+    color: #ffcc00;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+pre {
+    background: #111;
+    color: #00ffcc;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
 }

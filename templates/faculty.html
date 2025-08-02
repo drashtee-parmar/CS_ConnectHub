@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="static/styles.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/styles.css" />
     <title>Faculty</title>
     <!--    <style>-->
     <!--      #chatbotButton {-->
@@ -45,186 +45,193 @@
     <!--    </style>-->
 
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
-</head>
+  </head>
 
-<body class="gradient-background">
-<header class="header-wrapper">
-    <h1 class="header-title">Faculty</h1>
-    <nav class="header-nav">
+  <body class="gradient-background">
+    <header class="header-wrapper">
+      <h1 class="header-title">Faculty</h1>
+      <nav class="header-nav">
         <a href="/" class="active">Home</a>
         <a href="faculty">Faculty</a>
         <a href="alumni">Alumni</a>
         <a href="students">Students</a>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-<!-- Page-specific content here -->
+    <!-- Page-specific content here -->
 
-<div class="faculty-container">
-    <h1>MSCS Professors</h1>
-    <table class="faculty-table">
+    <div class="faculty-container">
+      <h1>MSCS Professors</h1>
+      <table class="faculty-table">
         <thead>
-        <tr>
+          <tr>
             <th>Select</th>
             <th>Professor Name</th>
             <th>Email</th>
             <th>Subject Taught</th>
-        </tr>
+          </tr>
         </thead>
         <tbody>
-        <tr>
+          <tr>
             <td>
-                <label>
-                    <input
-                            type="radio"
-                            name="faculty-select"
-                            value="Yong shi"
-                            onclick="showChatbot(this.value)"
-                            class="styled-checkbox"
-                    />
-                    <span></span>
-                </label>
+              <label>
+                <input
+                  type="radio"
+                  name="faculty-select"
+                  value="Yong shi"
+                  onclick="showChatbot(this.value)"
+                  class="styled-checkbox"
+                />
+                <span></span>
+              </label>
             </td>
             <td>Yong shi</td>
             <td>yshi5@kennesaw.edu</td>
             <td>Cloud Computing</td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
             <td>
-                <label>
-                    <input
-                            type="radio"
-                            name="faculty-select"
-                            value="Mahmut Karakaya"
-                            onclick="showChatbot(this.value)"
-                            class="styled-checkbox"
-                    />
-                    <span></span>
-                </label>
+              <label>
+                <input
+                  type="radio"
+                  name="faculty-select"
+                  value="Mahmut Karakaya"
+                  onclick="showChatbot(this.value)"
+                  class="styled-checkbox"
+                />
+                <span></span>
+              </label>
             </td>
             <td>Mahmut Karakaya</td>
             <td>mkarakay@kennesaw.edu</td>
             <td>Machine Learning</td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
             <td>
-                <label>
-                    <input
-                            type="radio"
-                            name="faculty-select"
-                            value="Alan Shaw"
-                            onclick="showChatbot(this.value)"
-                            class="styled-checkbox"
-                    />
-                    <span></span>
-                </label>
+              <label>
+                <input
+                  type="radio"
+                  name="faculty-select"
+                  value="Alan Shaw"
+                  onclick="showChatbot(this.value)"
+                  class="styled-checkbox"
+                />
+                <span></span>
+              </label>
             </td>
             <td>Alan Shaw</td>
             <td>ashaw8@kennesaw.edu</td>
             <td>Information Retrieval</td>
-        </tr>
+          </tr>
         </tbody>
-    </table>
-</div>
-<div class="faculty-chat">
-    <button id="chatbotButton" onclick="toggleChat()">
-        Chat with Selected Professor
-    </button>
-    <div id="chatContainer">
-        <div class="chat-controls">
-            <input id="questionInput" type="text" placeholder="Enter your question here...">
-            <button id="sendBtn" onclick="populateTextarea()">Send</button>
-            <button id="resetBtn" onClick="window.location.reload(true)">Reset</button>
-        </div>
-        <textarea id="outputTextarea" rows="15" cols="83" placeholder="Output here..."></textarea>
+      </table>
     </div>
-    <!--      <div id="chatContainer">-->
-    <!--        <input-->
-    <!--          id="questionInput"-->
-    <!--          type="text"-->
-    <!--          placeholder="Enter your question here..."-->
-    <!--          class="input_inlineBlock"-->
-    <!--          style="width: 310px"-->
-    <!--        />-->
-    <!--        &lt;!&ndash; <button class="inlineBlock" onclick="retrieveInfo()">Send</button> &ndash;&gt;-->
-    <!--        <button-->
-    <!--          class="button_inlineBlock"-->
-    <!--          onclick="populateTextarea()"-->
-    <!--          id="sendBtn"-->
-    <!--        >-->
-    <!--          Send-->
-    <!--        </button>-->
-    <!--        <button-->
-    <!--          class="button_inlineBlock"-->
-    <!--          id="resetBtn"-->
-    <!--          onClick="window.location.reload(true)"-->
-    <!--        >-->
-    <!--          Reset-->
-    <!--        </button>-->
-    <!--        &lt;!&ndash; <input type = "button" value= "Reset" onClick= "window.location.reload(true)"></input> &ndash;&gt;-->
-    <!--        <br /><br />-->
-    <!--        -->
-    <!--        <textarea-->
-    <!--          id="outputTextarea"-->
-    <!--          rows="15"-->
-    <!--          cols="83"-->
-    <!--          placeholder="Output here..."-->
-    <!--        ></textarea>-->
-    <!--      </div>-->
-</div>
+    <div class="faculty-chat">
+      <button id="chatbotButton" onclick="toggleChat()">
+        Chat with Selected Professor
+      </button>
+      <div id="chatContainer">
+        <div class="chat-controls">
+          <input
+            id="questionInput"
+            type="text"
+            placeholder="Enter your question here..."
+          />
+          <button id="sendBtn" onclick="populateTextarea()">Send</button>
+          <button id="resetBtn" onClick="window.location.reload(true)">
+            Reset
+          </button>
+        </div>
+        <!--        <textarea id="outputTextarea" rows="15" cols="83" placeholder="Output here..."></textarea>-->
+        <div id="outputContainer" class="chat-output"></div>
+      </div>
+      <!--      <div id="chatContainer">-->
+      <!--        <input-->
+      <!--          id="questionInput"-->
+      <!--          type="text"-->
+      <!--          placeholder="Enter your question here..."-->
+      <!--          class="input_inlineBlock"-->
+      <!--          style="width: 310px"-->
+      <!--        />-->
+      <!--        &lt;!&ndash; <button class="inlineBlock" onclick="retrieveInfo()">Send</button> &ndash;&gt;-->
+      <!--        <button-->
+      <!--          class="button_inlineBlock"-->
+      <!--          onclick="populateTextarea()"-->
+      <!--          id="sendBtn"-->
+      <!--        >-->
+      <!--          Send-->
+      <!--        </button>-->
+      <!--        <button-->
+      <!--          class="button_inlineBlock"-->
+      <!--          id="resetBtn"-->
+      <!--          onClick="window.location.reload(true)"-->
+      <!--        >-->
+      <!--          Reset-->
+      <!--        </button>-->
+      <!--        &lt;!&ndash; <input type = "button" value= "Reset" onClick= "window.location.reload(true)"></input> &ndash;&gt;-->
+      <!--        <br /><br />-->
+      <!--        -->
+      <!--        <textarea-->
+      <!--          id="outputTextarea"-->
+      <!--          rows="15"-->
+      <!--          cols="83"-->
+      <!--          placeholder="Output here..."-->
+      <!--        ></textarea>-->
+      <!--      </div>-->
+    </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-<!--    document.addEventListener("DOMContentLoaded", function () {-->
-<!--      const currentPath = window.location.pathname.split("/").pop();-->
-<!--      document.querySelectorAll(".header-nav a").forEach(link => {-->
-<!--        if (link.getAttribute("href") === currentPath) {-->
-<!--          link.classList.add("active");-->
-<!--        } else {-->
-<!--          link.classList.remove("active");-->
-<!--        }-->
-<!--      });-->
-<!--    });-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      <!--    document.addEventListener("DOMContentLoaded", function () {-->
+      <!--      const currentPath = window.location.pathname.split("/").pop();-->
+      <!--      document.querySelectorAll(".header-nav a").forEach(link => {-->
+      <!--        if (link.getAttribute("href") === currentPath) {-->
+      <!--          link.classList.add("active");-->
+      <!--        } else {-->
+      <!--          link.classList.remove("active");-->
+      <!--        }-->
+      <!--      });-->
+      <!--    });-->
 
-    document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", function () {
         // Initially hide button and chat container
         document.getElementById("chatbotButton").style.display = "none";
         document.getElementById("chatContainer").style.display = "none";
 
         // Highlight active nav link
         const currentPath = window.location.pathname.split("/").pop();
-        document.querySelectorAll(".header-nav a").forEach(link => {
-            if (link.getAttribute("href") === currentPath) {
-                link.classList.add("active");
-            } else {
-                link.classList.remove("active");
-            }
+        document.querySelectorAll(".header-nav a").forEach((link) => {
+          if (link.getAttribute("href") === currentPath) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
         });
-    });
+      });
 
-    // Called when a professor is selected
-    function showChatbot(professorInfo) {
+      // Called when a professor is selected
+      function showChatbot(professorInfo) {
         let chatbotButton = document.getElementById("chatbotButton");
         chatbotButton.style.display = "inline-block"; // Show button
         chatbotButton.innerHTML = "Chat with " + professorInfo;
-    }
+      }
 
-    // Toggle chat container when button is clicked
-    function toggleChat() {
+      // Toggle chat container when button is clicked
+      function toggleChat() {
         var chatContainer = document.getElementById("chatContainer");
         chatContainer.style.display =
-            chatContainer.style.display === "none" ? "block" : "none";
-    }
+          chatContainer.style.display === "none" ? "block" : "none";
+      }
 
       function toggleChatbotButton() {
         document.getElementById("chatbotButton").style.display = "block";
       }
 
-<!--      function toggleChat() {-->
-<!--        var chatContainer = document.getElementById("chatContainer");-->
-<!--        chatContainer.style.display =-->
-<!--          chatContainer.style.display === "none" ? "block" : "none";-->
-<!--      }-->
+      <!--      function toggleChat() {-->
+      <!--        var chatContainer = document.getElementById("chatContainer");-->
+      <!--        chatContainer.style.display =-->
+      <!--          chatContainer.style.display === "none" ? "block" : "none";-->
+      <!--      }-->
 
       function toggleChatbot() {
         var chatbot = document.getElementById("chat-interface");
@@ -236,13 +243,12 @@
       }
 
       function showChatbot(professorInfo) {
-          let chatbotButton = document.getElementById("chatbotButton");
-          chatbotButton.style.display = "inline-block";  // ✅ Ensure it's visible
-          chatbotButton.style.backgroundColor = "#FFA500";
-          chatbotButton.style.color = "#000";
-          chatbotButton.innerHTML = "Chat with " + professorInfo;
+        let chatbotButton = document.getElementById("chatbotButton");
+        chatbotButton.style.display = "inline-block"; // ✅ Ensure it's visible
+        chatbotButton.style.backgroundColor = "#FFA500";
+        chatbotButton.style.color = "#000";
+        chatbotButton.innerHTML = "Chat with " + professorInfo;
       }
-
 
       /* document.getElementById('sendBtn').addEventListener('click', async () => {
             try {
@@ -258,89 +264,113 @@
             }
         });*/
 
+      function populateTextarea() {
+        const questionInput = document.getElementById("questionInput");
+        const outputTextarea = document.getElementById("outputTextarea");
 
-        function populateTextarea() {
-            const questionInput = document.getElementById("questionInput");
-            const outputTextarea = document.getElementById("outputTextarea");
+        const selectedRadio = document.querySelector(
+          'input[name="faculty-select"]:checked'
+        );
+        if (selectedRadio) {
+          const selectedRow = selectedRadio.closest("tr");
+          const professorName = selectedRow.cells[1].textContent;
+          const subjectTaught = selectedRow.cells[3].textContent;
+          const questionInputtext = questionInput.value;
 
-            const selectedRadio = document.querySelector('input[name="faculty-select"]:checked');
-            if (selectedRadio) {
-                const selectedRow = selectedRadio.closest("tr");
-                const professorName = selectedRow.cells[1].textContent;
-                const subjectTaught = selectedRow.cells[3].textContent;
-                const questionInputtext = questionInput.value;
+          var server_data = [
+            { "Professor Name": professorName },
+            { "Subject Taught": subjectTaught },
+            { Question: questionInputtext },
+          ];
 
-                var server_data = [
-                    { "Professor Name": professorName },
-                    { "Subject Taught": subjectTaught },
-                    { "Question": questionInputtext }
-                ];
+          <!--                $.ajax({-->
+          <!--                    type: "POST",-->
+          <!--                    url: "/facultychat",-->
+          <!--                    data: JSON.stringify(server_data),-->
+          <!--                    contentType: "application/json",-->
+          <!--                    dataType: "json",-->
+          <!--                }).done(function (data) {-->
+          <!--                    outputTextarea.value += `Question: ${data["user_message"]}\n`;-->
+          <!--                    outputTextarea.value += `Response: ${data["assistant_response"]}\n\n`;-->
 
-                $.ajax({
-                    type: "POST",
-                    url: "/facultychat",
-                    data: JSON.stringify(server_data),
-                    contentType: "application/json",
-                    dataType: "json",
-                }).done(function (data) {
-                    outputTextarea.value += `Question: ${data["user_message"]}\n`;
-                    outputTextarea.value += `Response: ${data["assistant_response"]}\n\n`;
-
-                    // ✅ Clear the input after sending
-                    questionInput.value = "";
-                });
-            } else {
-                outputTextarea.value = "Please select a professor first.";
-            }
+          <!--                    // ✅ Clear the input after sending-->
+          <!--                    questionInput.value = "";-->
+          <!--                });-->
+          $.ajax({
+            type: "POST",
+            url: "/facultychat",
+            data: JSON.stringify(server_data),
+            contentType: "application/json",
+            dataType: "json",
+          }).done(function (data) {
+            const question = `<strong>Question:</strong> ${data["user_message"]}<br>`;
+            const response = `<strong>Response:</strong><br>${formatResponse(
+              data["assistant_response"]
+            )}`;
+            $("#outputContainer").append(
+              `<div class="chat-entry">${question}${response}<hr></div>`
+            );
+            $("#questionInput").val(""); // ✅ Clear input after sending
+          });
+        } else {
+          outputTextarea.value = "Please select a professor first.";
         }
+      }
+      function formatResponse(text) {
+        return text
+          .replace(/```([\s\S]*?)```/g, "<pre><code>$1</code></pre>") // code blocks
+          .replace(/`([^`]+)`/g, "<code>$1</code>") // inline code
+          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>") // bold
+          .replace(/### (.*?)\n/g, "<h4>$1</h4>") // headings
+          .replace(/\n/g, "<br>"); // line breaks
+      }
+      <!--      // This function is to populate the textarea with the necessary information-->
+      <!--      function populateTextarea() {-->
+      <!--        const questionInput = document.getElementById("questionInput");-->
+      <!--        const outputTextarea = document.getElementById("outputTextarea");-->
 
-<!--      // This function is to populate the textarea with the necessary information-->
-<!--      function populateTextarea() {-->
-<!--        const questionInput = document.getElementById("questionInput");-->
-<!--        const outputTextarea = document.getElementById("outputTextarea");-->
+      <!--        // Get the selected professor's row-->
+      <!--        const selectedRadio = document.querySelector(-->
+      <!--          'input[name="faculty-select"]:checked'-->
+      <!--        );-->
+      <!--        if (selectedRadio) {-->
+      <!--          const selectedRow = selectedRadio.closest("tr");-->
 
-<!--        // Get the selected professor's row-->
-<!--        const selectedRadio = document.querySelector(-->
-<!--          'input[name="faculty-select"]:checked'-->
-<!--        );-->
-<!--        if (selectedRadio) {-->
-<!--          const selectedRow = selectedRadio.closest("tr");-->
+      <!--          const professorName = selectedRow.cells[1].textContent;-->
+      <!--          const subjectTaught = selectedRow.cells[3].textContent;-->
+      <!--          const questionInputtext = questionInput.value;-->
 
-<!--          const professorName = selectedRow.cells[1].textContent;-->
-<!--          const subjectTaught = selectedRow.cells[3].textContent;-->
-<!--          const questionInputtext = questionInput.value;-->
+      <!--          // Update the textarea-->
+      <!--          //outputTextarea.value = `Professor Name: ${professorName}\n`;-->
+      <!--          //outputTextarea.value += `Subject Taught: ${subjectTaught}\n`;-->
+      <!--          //outputTextarea.value += `Question: ${questionInput.value}\n`;-->
 
-<!--          // Update the textarea-->
-<!--          //outputTextarea.value = `Professor Name: ${professorName}\n`;-->
-<!--          //outputTextarea.value += `Subject Taught: ${subjectTaught}\n`;-->
-<!--          //outputTextarea.value += `Question: ${questionInput.value}\n`;-->
+      <!--          var server_data = [-->
+      <!--            { "Professor Name": professorName },-->
+      <!--            { "Subject Taught": subjectTaught },-->
+      <!--            { Question: questionInputtext },-->
+      <!--          ];-->
 
-<!--          var server_data = [-->
-<!--            { "Professor Name": professorName },-->
-<!--            { "Subject Taught": subjectTaught },-->
-<!--            { Question: questionInputtext },-->
-<!--          ];-->
+      <!--          $.ajax({-->
+      <!--            type: "POST",-->
+      <!--            url: "/facultychat",-->
+      <!--            data: JSON.stringify(server_data),-->
+      <!--            contentType: "application/json",-->
+      <!--            dataType: "json",-->
+      <!--          }).done(function (data) {-->
+      <!--            //$('#outputTextarea').html("<b>"Question:"</b>");-->
+      <!--            //$('#outputTextarea').text(data['assistant_response']).show()});-->
+      <!--            //text(data.output).show()});-->
+      <!--            outputTextarea.value += `Question: ${data["user_message"]}\n`;-->
+      <!--            outputTextarea.value += `Response: ${data["assistant_response"]}\n\n\n`;-->
 
-<!--          $.ajax({-->
-<!--            type: "POST",-->
-<!--            url: "/facultychat",-->
-<!--            data: JSON.stringify(server_data),-->
-<!--            contentType: "application/json",-->
-<!--            dataType: "json",-->
-<!--          }).done(function (data) {-->
-<!--            //$('#outputTextarea').html("<b>"Question:"</b>");-->
-<!--            //$('#outputTextarea').text(data['assistant_response']).show()});-->
-<!--            //text(data.output).show()});-->
-<!--            outputTextarea.value += `Question: ${data["user_message"]}\n`;-->
-<!--            outputTextarea.value += `Response: ${data["assistant_response"]}\n\n\n`;-->
-
-<!--            console.log("Response Data:", data["assistant_response"]);-->
-<!--          });-->
-<!--        } else {-->
-<!--          // In case no professor is selected, display a warning message-->
-<!--          outputTextarea.value = "Please select a professor first.";-->
-<!--        }-->
-<!--      }-->
+      <!--            console.log("Response Data:", data["assistant_response"]);-->
+      <!--          });-->
+      <!--        } else {-->
+      <!--          // In case no professor is selected, display a warning message-->
+      <!--          outputTextarea.value = "Please select a professor first.";-->
+      <!--        }-->
+      <!--      }-->
 
       function reset_faculty() {
         $.ajax({
@@ -348,10 +378,6 @@
           url: "/faculty",
         });
       }
-
-
-
-
-</script>
-</body>
+    </script>
+  </body>
 </html>
