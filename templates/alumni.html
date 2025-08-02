@@ -1,195 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="static/styles.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/styles.css" />
     <title>Alumni</title>
-    <!--    <style>-->
-    <!--      #chatbotButton {-->
-    <!--        display: none;-->
-    <!--        margin-top: 15px;-->
-    <!--        align-items: center;-->
-    <!--        justify-content: center;-->
-    <!--      }-->
+  </head>
 
-    <!--      #chatContainer {-->
-    <!--        display: none;-->
-    <!--        border: 1px solid black;-->
-    <!--        width: 70%;-->
-    <!--        max-width: 800px;-->
-    <!--        align-items: center;-->
-    <!--        /* Optional: This ensures that it doesn't get too wide */-->
-
-    <!--        padding: 10px;-->
-    <!--        margin-top: 15px;-->
-    <!--      }-->
-
-    <!--      .input_inlineBlock {-->
-    <!--        display: inline-block;-->
-    <!--        width: 100%;-->
-    <!--        /* Width for the input */-->
-    <!--      }-->
-
-    <!--      .button_inlineBlock {-->
-    <!--        display: inline-block;-->
-    <!--        width: 150px;-->
-    <!--        /* Width for the button */-->
-    <!--      }-->
-
-    <!--      .inlineBlock {-->
-    <!--        display: inline-block;-->
-    <!--      }-->
-
-    <!--    </style>-->
-
-    <!-- Add your styles and scripts as needed -->
-</head>
-
-<body class="gradient-background">
-
-<header class="header-wrapper">
-    <h1 class="header-title">Alumni</h1>
-    <nav class="header-nav">
+  <body class="gradient-background">
+    <header class="header-wrapper">
+      <h1 class="header-title">Alumni</h1>
+      <nav class="header-nav">
         <a href="/" class="active">Home</a>
         <a href="faculty">Faculty</a>
         <a href="alumni">Alumni</a>
         <a href="students">Students</a>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-<div class="alumni-container">
-    <h1>Alumni Information</h1>
-    <table class="alumni-table">
+    <div class="alumni-container">
+      <h1>Alumni Information</h1>
+      <table class="alumni-table">
         <thead>
-        <tr>
+          <tr>
             <th>Select</th>
             <th>Alumni Name</th>
             <th>Department</th>
             <th>Graduation Year</th>
             <th>Current Position</th>
-        </tr>
+          </tr>
         </thead>
         <tbody>
-        <tr>
+          <tr>
             <td>
-                <label>
-                    <input
-                            type="radio"
-                            name="alumni-select"
-                            value="Alice Anderson"
-                            onclick="showChatbot(this.value)"
-                            class="styled-checkbox"
-                    />
-                    <span></span>
-                </label>
+              <label>
+                <input
+                  type="radio"
+                  name="alumni-select"
+                  value="Alice Anderson"
+                  onclick="showChatbot(this.value)"
+                  class="styled-checkbox"
+                />
+                <span></span>
+              </label>
             </td>
             <td>Alice Anderson</td>
             <td>Computer Science</td>
             <td>2015</td>
             <td>Software Engineer at Google</td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
             <td>
-                <label>
-                    <input
-                            type="radio"
-                            name="alumni-select"
-                            value="Bob Brown"
-                            onclick="showChatbot(this.value)"
-                            class="styled-checkbox"
-                    />
-                    <span></span>
-                </label>
+              <label>
+                <input
+                  type="radio"
+                  name="alumni-select"
+                  value="Bob Brown"
+                  onclick="showChatbot(this.value)"
+                  class="styled-checkbox"
+                />
+                <span></span>
+              </label>
             </td>
             <td>Bob Brown</td>
             <td>Data Science</td>
             <td>2018</td>
             <td>Data Scientist at Facebook</td>
-        </tr>
-        <tr>
+          </tr>
+          <tr>
             <td>
-                <label>
-                    <input
-                            type="radio"
-                            name="alumni-select"
-                            value="Charlie Clark"
-                            onclick="showChatbot(this.value)"
-                            class="styled-checkbox"
-                    />
-                    <span></span>
-                </label>
+              <label>
+                <input
+                  type="radio"
+                  name="alumni-select"
+                  value="Charlie Clark"
+                  onclick="showChatbot(this.value)"
+                  class="styled-checkbox"
+                />
+                <span></span>
+              </label>
             </td>
             <td>Charlie Clark</td>
             <td>Information Systems</td>
             <td>2017</td>
             <td>System Administrator at Amazon</td>
-        </tr>
+          </tr>
         </tbody>
-    </table>
-</div>
-
-<div class="alumni-chat">
-    <button id="chatbotButton" onclick="toggleChat()">
-        Chat with Selected Alumni
-    </button>
-
-    <div id="chatContainer">
-        <input
-                id="questionInput"
-                type="text"
-                placeholder="Enter your question here..."
-                class="input_inlineBlock"
-                style="width: 310px"
-        />
-        <button
-                class="button_inlineBlock"
-                onclick="populateTextarea()"
-                id="sendBtn"
-        >
-            Send
-        </button>
-        <button
-                class="button_inlineBlock"
-                id="resetBtn"
-                onClick="window.location.reload(true)"
-        >
-            Reset
-        </button>
-        <br/><br/>
-        <textarea
-                id="outputTextarea"
-                rows="15"
-                cols="83"
-                placeholder="Output here..."
-        ></textarea>
+      </table>
     </div>
-</div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
+    <div class="alumni-chat">
+      <button id="chatbotButton" onclick="toggleChat()">
+        Chat with Selected Alumni
+      </button>
+      <div id="chatContainer">
+        <div class="chat-controls">
+          <input
+            id="questionInput"
+            type="text"
+            placeholder="Enter your question here..."
+          />
+          <button id="sendBtn" onclick="populateTextarea()">Send</button>
+          <button id="resetBtn" onClick="window.location.reload(true)">
+            Reset
+          </button>
+        </div>
+        <div id="outputContainer" class="chat-output"></div>
+      </div>
+    </div>
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const currentPath = window.location.pathname.split("/").pop();
-      document.querySelectorAll(".header-nav a").forEach(link => {
-        if (link.getAttribute("href") === currentPath) {
-          link.classList.add("active");
-        } else {
-          link.classList.remove("active");
-        }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initially hide button and chat container
+        document.getElementById("chatbotButton").style.display = "none";
+        document.getElementById("chatContainer").style.display = "none";
+
+        // Highlight active nav link
+        const currentPath = window.location.pathname.split("/").pop();
+        document.querySelectorAll(".header-nav a").forEach((link) => {
+          if (link.getAttribute("href") === currentPath) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
       });
-    });
 
-
-
-      function toggleChatbotButton() {
-        document.getElementById("chatbotButton").style.display = "block";
+      // Called when a alumni is selected
+      function showChatbot(alumniInfo) {
+        let chatbotButton = document.getElementById("chatbotButton");
+        chatbotButton.style.display = "inline-block"; // Show button
+        chatbotButton.innerHTML = "Chat with " + alumniInfo;
       }
 
       function toggleChat() {
         var chatContainer = document.getElementById("chatContainer");
         chatContainer.style.display =
           chatContainer.style.display === "none" ? "block" : "none";
+      }
+
+      function toggleChatbotButton() {
+        document.getElementById("chatbotButton").style.display = "block";
       }
 
       function toggleChatbot() {
@@ -203,15 +155,17 @@
 
       function showChatbot(alumniInfo) {
         let chatbotButton = document.getElementById("chatbotButton");
-        chatbotButton.style.display = "block";
+        chatbotButton.style.display = "inline-block"; //Ensure it's visible
+        chatbotButton.style.backgroundColor = "#FFA500";
+        chatbotButton.style.color = "#000";
         chatbotButton.innerHTML = "Chat with " + alumniInfo;
       }
 
       /* document.getElementById('sendBtn').addEventListener('click', async () => {
         try {
-            const response = await fetch('http://localhost:3000/facultychat');
+            const response = await fetch('http://localhost:3000/alumnichat');
             const data = await response.json();
-            document.getElementById('facultyInfo').innerHTML = `
+            document.getElementById('alumniInfo').innerHTML = `
                 Name: ${data.name} <br>
                 Department: ${data.department} <br>
                 Email: ${data.email}
@@ -223,45 +177,61 @@
 
       // This function is to populate the textarea with the necessary information
       function populateTextarea() {
-        const questionInput = document.getElementById("questionInput");
-        const outputTextarea = document.getElementById("outputTextarea");
+          const questionInput = document.getElementById("questionInput");
+          const outputContainer = document.getElementById("outputContainer");
 
-        //
-        const selectedRadio = document.querySelector(
-          'input[name="alumni-select"]:checked'
-        );
-        if (selectedRadio) {
+          // ✅ Ensure an alumni is selected
+          const selectedRadio = document.querySelector('input[name="alumni-select"]:checked');
+          if (!selectedRadio) {
+              alert("Please select an alumni first.");
+              return;
+          }
+
           const selectedRow = selectedRadio.closest("tr");
-
           const alumniName = selectedRow.cells[1].textContent;
-          const department = selectedRow.cells[2].textContent;
+          const alumniDepartment = selectedRow.cells[2].textContent;
           const graduationYear = selectedRow.cells[3].textContent;
           const currentPosition = selectedRow.cells[4].textContent;
-          const questionInputText = questionInput.value;
+          const questionInputtext = questionInput.value.trim();   // ✅ FIXED HERE
 
-          var server_data = [
-            { "Alumni Name": alumniName },
-            { Department: department },
-            { "Graduation Year": graduationYear },
-            { "Current Position": currentPosition },
-            { Question: questionInputText },
-          ];
+          if (!questionInputtext) return; // Prevent empty questions
+
+          // ✅ Send as JSON Object (NOT list)
+          const server_data = {
+              alumni_name: alumniName,
+              department: alumniDepartment,
+              graduation_year: graduationYear,
+              current_position: currentPosition,
+              question: questionInputtext
+          };
 
           $.ajax({
-            type: "POST",
-            url: "/alumnichat",
-            data: JSON.stringify(server_data),
-            contentType: "application/json",
-            dataType: "json",
+              type: "POST",
+              url: "/alumnichat",
+              data: JSON.stringify(server_data),
+              contentType: "application/json",
+              dataType: "json",
           }).done(function (data) {
-            outputTextarea.value += `Question: ${data["user_message"]}\n`;
-            outputTextarea.value += `Response: ${data["assistant_response"]}\n\n\n`;
+              const chatHTML = `
+                  <div class="chat-entry">
+                      <div class="question"><strong>Question:</strong> ${data.user_message}</div>
+                      <div class="response"><strong>Response:</strong><br>${formatResponse(data.assistant_response)}</div>
+                      <hr>
+                  </div>
+              `;
 
-            console.log("Response Data:", data["assistant_response"]);
+              outputContainer.insertAdjacentHTML("afterbegin", chatHTML);
+              questionInput.value = ""; // ✅ Clear input
           });
-        } else {
-          outputTextarea.value = "Please select an alumni first.";
-        }
+      }
+
+      function formatResponse(text) {
+        return text
+          .replace(/```([\s\S]*?)```/g, "<pre><code>$1</code></pre>")
+          .replace(/`([^`]+)`/g, "<code>$1</code>")
+          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+          .replace(/### (.*?)\n/g, "<h4>$1</h4>")
+          .replace(/\n/g, "<br>");
       }
 
       function reset_alumni() {
@@ -270,8 +240,6 @@
           url: "/alumni",
         });
       }
-
-
-</script>
-</body>
+    </script>
+  </body>
 </html>

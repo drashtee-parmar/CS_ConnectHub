@@ -221,15 +221,6 @@
 }
 
 /* alumni Table Styling */
-.alumni-container {
-    width        : 80%;
-    margin       : 0 auto;
-    background   : #1a1a1a;
-    padding      : 25px;
-    border-radius: 10px;
-    box-shadow   : 0 0 15px rgba(255, 165, 0, 0.2);
-}
-
 .alumni-container h1 {
     text-align   : center;
     margin-bottom: 20px;
@@ -602,6 +593,9 @@ textarea {
 .students-chat #chatbotButton {
     color: #000;
 }
+.alumni-chat #chatbotButton {
+    color: #000;
+}
 
 /* Chat Button */
 #chatbotButton {
@@ -631,13 +625,15 @@ textarea {
     text-align   : center;
 }
 
+/* Chat Section Properly Centered */
 .alumni-chat {
-    font-family    : Arial, sans-serif;
-    margin         : 0;
-    display        : flex;
-    flex-direction : column;
-    align-items    : center;
-    justify-content: center;
+    width        : 80%;
+    margin       : 40px auto;
+    background   : #1a1a1a;
+    padding      : 20px;
+    border-radius: 10px;
+    box-shadow   : 0 0 15px rgba(255, 165, 0, 0.2);
+    text-align   : center;
 }
 
 /* Chat Section Properly Centered */
