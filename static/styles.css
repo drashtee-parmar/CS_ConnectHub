@@ -640,6 +640,7 @@ input[type="radio"] {
 */
 
 /* ✅ Chat Button Centered */
+/*
 #chatbotButton {
     background: #FFA500;
     color: #000;
@@ -650,12 +651,30 @@ input[type="radio"] {
     margin-bottom: 20px;
     cursor: pointer;
 }
+*/
+#chatbotButton {
+    display: none; /* hidden on load */
+}
+
+#chatContainer {
+    display: none; /* hidden on load */
+    background: #1c1c1c;
+    border: 1px solid #FFA500;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 700px;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
+}
+
 #chatbotButton:hover {
     background: #ff7b00;
     color: #fff;
 }
 
 /* ✅ Chat Container Centered & Clean */
+/*
 #chatContainer {
     background: #1c1c1c;
     border: 1px solid #FFA500;
@@ -665,6 +684,7 @@ input[type="radio"] {
     margin: 0 auto;
     padding: 20px;
 }
+*/
 
 /* ✅ Align Input + Buttons Horizontally */
 .chat-controls {

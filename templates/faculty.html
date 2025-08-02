@@ -175,26 +175,56 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+<!--    document.addEventListener("DOMContentLoaded", function () {-->
+<!--      const currentPath = window.location.pathname.split("/").pop();-->
+<!--      document.querySelectorAll(".header-nav a").forEach(link => {-->
+<!--        if (link.getAttribute("href") === currentPath) {-->
+<!--          link.classList.add("active");-->
+<!--        } else {-->
+<!--          link.classList.remove("active");-->
+<!--        }-->
+<!--      });-->
+<!--    });-->
+
     document.addEventListener("DOMContentLoaded", function () {
-      const currentPath = window.location.pathname.split("/").pop();
-      document.querySelectorAll(".header-nav a").forEach(link => {
-        if (link.getAttribute("href") === currentPath) {
-          link.classList.add("active");
-        } else {
-          link.classList.remove("active");
-        }
-      });
+        // Initially hide button and chat container
+        document.getElementById("chatbotButton").style.display = "none";
+        document.getElementById("chatContainer").style.display = "none";
+
+        // Highlight active nav link
+        const currentPath = window.location.pathname.split("/").pop();
+        document.querySelectorAll(".header-nav a").forEach(link => {
+            if (link.getAttribute("href") === currentPath) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
     });
+
+    // Called when a professor is selected
+    function showChatbot(professorInfo) {
+        let chatbotButton = document.getElementById("chatbotButton");
+        chatbotButton.style.display = "inline-block"; // Show button
+        chatbotButton.innerHTML = "Chat with " + professorInfo;
+    }
+
+    // Toggle chat container when button is clicked
+    function toggleChat() {
+        var chatContainer = document.getElementById("chatContainer");
+        chatContainer.style.display =
+            chatContainer.style.display === "none" ? "block" : "none";
+    }
 
       function toggleChatbotButton() {
         document.getElementById("chatbotButton").style.display = "block";
       }
 
-      function toggleChat() {
-        var chatContainer = document.getElementById("chatContainer");
-        chatContainer.style.display =
-          chatContainer.style.display === "none" ? "block" : "none";
-      }
+<!--      function toggleChat() {-->
+<!--        var chatContainer = document.getElementById("chatContainer");-->
+<!--        chatContainer.style.display =-->
+<!--          chatContainer.style.display === "none" ? "block" : "none";-->
+<!--      }-->
 
       function toggleChatbot() {
         var chatbot = document.getElementById("chat-interface");
@@ -228,53 +258,89 @@
             }
         });*/
 
-      // This function is to populate the textarea with the necessary information
-      function populateTextarea() {
-        const questionInput = document.getElementById("questionInput");
-        const outputTextarea = document.getElementById("outputTextarea");
 
-        // Get the selected professor's row
-        const selectedRadio = document.querySelector(
-          'input[name="faculty-select"]:checked'
-        );
-        if (selectedRadio) {
-          const selectedRow = selectedRadio.closest("tr");
+        function populateTextarea() {
+            const questionInput = document.getElementById("questionInput");
+            const outputTextarea = document.getElementById("outputTextarea");
 
-          const professorName = selectedRow.cells[1].textContent;
-          const subjectTaught = selectedRow.cells[3].textContent;
-          const questionInputtext = questionInput.value;
+            const selectedRadio = document.querySelector('input[name="faculty-select"]:checked');
+            if (selectedRadio) {
+                const selectedRow = selectedRadio.closest("tr");
+                const professorName = selectedRow.cells[1].textContent;
+                const subjectTaught = selectedRow.cells[3].textContent;
+                const questionInputtext = questionInput.value;
 
-          // Update the textarea
-          //outputTextarea.value = `Professor Name: ${professorName}\n`;
-          //outputTextarea.value += `Subject Taught: ${subjectTaught}\n`;
-          //outputTextarea.value += `Question: ${questionInput.value}\n`;
+                var server_data = [
+                    { "Professor Name": professorName },
+                    { "Subject Taught": subjectTaught },
+                    { "Question": questionInputtext }
+                ];
 
-          var server_data = [
-            { "Professor Name": professorName },
-            { "Subject Taught": subjectTaught },
-            { Question: questionInputtext },
-          ];
+                $.ajax({
+                    type: "POST",
+                    url: "/facultychat",
+                    data: JSON.stringify(server_data),
+                    contentType: "application/json",
+                    dataType: "json",
+                }).done(function (data) {
+                    outputTextarea.value += `Question: ${data["user_message"]}\n`;
+                    outputTextarea.value += `Response: ${data["assistant_response"]}\n\n`;
 
-          $.ajax({
-            type: "POST",
-            url: "/facultychat",
-            data: JSON.stringify(server_data),
-            contentType: "application/json",
-            dataType: "json",
-          }).done(function (data) {
-            //$('#outputTextarea').html("<b>"Question:"</b>");
-            //$('#outputTextarea').text(data['assistant_response']).show()});
-            //text(data.output).show()});
-            outputTextarea.value += `Question: ${data["user_message"]}\n`;
-            outputTextarea.value += `Response: ${data["assistant_response"]}\n\n\n`;
-
-            console.log("Response Data:", data["assistant_response"]);
-          });
-        } else {
-          // In case no professor is selected, display a warning message
-          outputTextarea.value = "Please select a professor first.";
+                    // ✅ Clear the input after sending
+                    questionInput.value = "";
+                });
+            } else {
+                outputTextarea.value = "Please select a professor first.";
+            }
         }
-      }
+
+<!--      // This function is to populate the textarea with the necessary information-->
+<!--      function populateTextarea() {-->
+<!--        const questionInput = document.getElementById("questionInput");-->
+<!--        const outputTextarea = document.getElementById("outputTextarea");-->
+
+<!--        // Get the selected professor's row-->
+<!--        const selectedRadio = document.querySelector(-->
+<!--          'input[name="faculty-select"]:checked'-->
+<!--        );-->
+<!--        if (selectedRadio) {-->
+<!--          const selectedRow = selectedRadio.closest("tr");-->
+
+<!--          const professorName = selectedRow.cells[1].textContent;-->
+<!--          const subjectTaught = selectedRow.cells[3].textContent;-->
+<!--          const questionInputtext = questionInput.value;-->
+
+<!--          // Update the textarea-->
+<!--          //outputTextarea.value = `Professor Name: ${professorName}\n`;-->
+<!--          //outputTextarea.value += `Subject Taught: ${subjectTaught}\n`;-->
+<!--          //outputTextarea.value += `Question: ${questionInput.value}\n`;-->
+
+<!--          var server_data = [-->
+<!--            { "Professor Name": professorName },-->
+<!--            { "Subject Taught": subjectTaught },-->
+<!--            { Question: questionInputtext },-->
+<!--          ];-->
+
+<!--          $.ajax({-->
+<!--            type: "POST",-->
+<!--            url: "/facultychat",-->
+<!--            data: JSON.stringify(server_data),-->
+<!--            contentType: "application/json",-->
+<!--            dataType: "json",-->
+<!--          }).done(function (data) {-->
+<!--            //$('#outputTextarea').html("<b>"Question:"</b>");-->
+<!--            //$('#outputTextarea').text(data['assistant_response']).show()});-->
+<!--            //text(data.output).show()});-->
+<!--            outputTextarea.value += `Question: ${data["user_message"]}\n`;-->
+<!--            outputTextarea.value += `Response: ${data["assistant_response"]}\n\n\n`;-->
+
+<!--            console.log("Response Data:", data["assistant_response"]);-->
+<!--          });-->
+<!--        } else {-->
+<!--          // In case no professor is selected, display a warning message-->
+<!--          outputTextarea.value = "Please select a professor first.";-->
+<!--        }-->
+<!--      }-->
 
       function reset_faculty() {
         $.ajax({
@@ -282,6 +348,8 @@
           url: "/faculty",
         });
       }
+
+
 
 
 </script>

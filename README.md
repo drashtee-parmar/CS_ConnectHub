@@ -54,6 +54,8 @@ Create a mscs application that allows the student to interact and retrive inform
 - [Live Deployed application](https://drashtee-parmar.github.io/CS_ConnectHub/)
 
 ## Project Visual 😎
+![campus connect main page](img.png)
+
 
 ## Api's 
 - [Open AI]()
@@ -74,8 +76,11 @@ flask run -h localhost -p 3000
 - Installing OpenAI
 pip install openai
 
-- Installing Flast
+- Installing Flask
 pip install flask
+
+- Installing venv
+pip install python-dotenv
 ```
 pip install openai
 
