@@ -100,7 +100,7 @@ flask run -h localhost -p 3000
 ---
 ## Deployment
 - [Github Repository: Source Code](https://github.com/drashtee-parmar/CS_ConnectHub)
-- [GitHub Pages: Live Demo, yet to come](https://cs-connecthub-app-01f88dff8294.herokuapp.com/)
+- [Live Demo](https://cs-connecthub-app-01f88dff8294.herokuapp.com/)
 ---
 ##  Project Structure
 ```
@@ -132,10 +132,9 @@ CS_ConnectHub/
 
 ---
 ## Tools Used 
-- [Presentation](https://kennesawedu-my.sharepoint.com/:p:/g/personal/mmurikip_students_kennesaw_edu/EZfv0JIIjRtBjsJr0X0a2JcBarF-VFvS1vKl7Y7DMcAesw?e=q54c1N)
-- [Wireframe](https://lucid.app/lucidchart/3d5f8019-4d9a-474b-92d8-6d9f174a7078/edit?invitationId=inv_cd8f6b9c-6806-4e62-a50e-9530671377ac)
-- [Requirement Traceability Matrix](https://kennesawedu-my.sharepoint.com/:x:/g/personal/mmurikip_students_kennesaw_edu/Eco1PlniUmBCtgYSs_pn0lsB9ce5L1ofTJ8eEYxRSJ4_hQ?e=3nIlWO)
-- [Connector test cases](https://kennesawedu-my.sharepoint.com/:x:/g/personal/mmurikip_students_kennesaw_edu/EW9NA_6pum1IpSsaHX59SToBp5pT3IM5elpPBtvpc3Fh0w?e=V9RDYP)
+- [Presentation](Hackathon_Fall23_CodeBusters_Latest794c046eb9357f5654c874e48eff1a064f1a0b1119c5ea04e7db54db1ed17aa2.pptx)
+- [Requirement Traceability Matrix](Requirement_Traceability_Matrix0acf999732bebd053887fe8e664821c7744e819db385284794fe208ea5cd91f5.xlsx)
+- [Connector test cases](Connector_TestCases40ea3a478045dc8a8371a9627a5d15f2ef329c496222fad6a499283ea05900cf.xlsx)
 ---
 
 ## References
