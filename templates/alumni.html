@@ -180,7 +180,7 @@
           const questionInput = document.getElementById("questionInput");
           const outputContainer = document.getElementById("outputContainer");
 
-          // ✅ Ensure an alumni is selected
+          // Ensure an alumni is selected
           const selectedRadio = document.querySelector('input[name="alumni-select"]:checked');
           if (!selectedRadio) {
               alert("Please select an alumni first.");
@@ -192,11 +192,11 @@
           const alumniDepartment = selectedRow.cells[2].textContent;
           const graduationYear = selectedRow.cells[3].textContent;
           const currentPosition = selectedRow.cells[4].textContent;
-          const questionInputtext = questionInput.value.trim();   // ✅ FIXED HERE
+          const questionInputtext = questionInput.value.trim();   // FIXED HERE
 
           if (!questionInputtext) return; // Prevent empty questions
 
-          // ✅ Send as JSON Object (NOT list)
+          // Send as JSON Object (NOT list)
           const server_data = {
               alumni_name: alumniName,
               department: alumniDepartment,
@@ -221,7 +221,7 @@
               `;
 
               outputContainer.insertAdjacentHTML("afterbegin", chatHTML);
-              questionInput.value = ""; // ✅ Clear input
+              questionInput.value = ""; // Clear input
           });
       }
 
