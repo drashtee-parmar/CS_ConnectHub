@@ -16,11 +16,11 @@ def health():
 # api_key = os.getenv("OPENAI_API_KEY")
 # if not api_key:
 #     raise RuntimeError("OPENAI_API_KEY is not set. Please configure it in your .env file.")
-# # client = OpenAI(api_key=api_key)
+# client = OpenAI(api_key=api_key)
 # client = OpenAI()
-# client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-_client = None
+# _client = None
 
 def get_openai_client():
     global _client
@@ -58,8 +58,12 @@ alumni_members = [
 # ------------------------------
 # OpenAI Chat Handler
 # ------------------------------
+# --- leave your existing _client and get_openai_client() as-is ---
+
 def conversation(messages, temperature=0.4):
+    """Single place that talks to OpenAI. Never touch `_client` directly."""
     try:
+        client = get_openai_client()  # <-- IMPORTANT
         response = client.chat.completions.create(
             model="gpt-4o-mini",
             messages=messages,
@@ -68,8 +72,21 @@ def conversation(messages, temperature=0.4):
         )
         return response.choices[0].message.content
     except Exception as e:
+        # Log to server console; keep user-friendly message in UI
         print(f"OpenAI API Error: {e}")
         return "The chatbot was unable to process your request at this time."
+# def conversation(messages, temperature=0.4):
+#     try:
+#         response = _client.chat.completions.create(
+#             model="gpt-4o-mini",
+#             messages=messages,
+#             temperature=temperature,
+#             max_tokens=512,
+#         )
+#         return response.choices[0].message.content
+#     except Exception as e:
+#         print(f"OpenAI API Error: {e}")
+#         return "The chatbot was unable to process your request at this time."
 
 # ------------------------------
 # ROUTES

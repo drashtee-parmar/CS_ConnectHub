@@ -100,7 +100,7 @@ flask run -h localhost -p 3000
 ---
 ## Deployment
 - [Github Repository: Source Code](https://github.com/drashtee-parmar/CS_ConnectHub)
-- [GitHub Pages: Live Demo, yet to come](https://drashtee-parmar.github.io/CS_ConnectHub/)
+- [GitHub Pages: Live Demo, yet to come](https://cs-connecthub-app-01f88dff8294.herokuapp.com/)
 ---
 ##  Project Structure
 ```
