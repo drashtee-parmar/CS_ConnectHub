@@ -1,4 +1,5 @@
 # CS_ConnectHub
+An AI-powered web platform built with Flask and OpenAI API that connects students, faculty, and alumni through an intelligent chatbot interface for quick access to academic and networking information.
 
 ## Table of contents
 
@@ -54,7 +55,8 @@ Create a mscs application that allows the student to interact and retrive inform
 - [Live Deployed application](https://drashtee-parmar.github.io/CS_ConnectHub/)
 
 ## Project Visual 😎
-![campus connect main page](img.png)
+![campus connect main page](images/CampusConnectMainPage.png)
+![campus connect Faculty page](images/Faculty.png)
 
 
 ## Api's 
