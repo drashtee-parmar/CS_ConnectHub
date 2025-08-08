@@ -8,6 +8,9 @@ load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
+@app.route("/health")
+def health():
+    return jsonify(ok=True), 200
 
 # Initialize OpenAI client
 # api_key = os.getenv("OPENAI_API_KEY")
@@ -15,7 +18,22 @@ app = Flask(__name__)
 #     raise RuntimeError("OPENAI_API_KEY is not set. Please configure it in your .env file.")
 # # client = OpenAI(api_key=api_key)
 # client = OpenAI()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+# client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+_client = None
+
+def get_openai_client():
+    global _client
+    if _client is not None:
+        return _client
+
+    from openai import OpenAI  # import here to avoid module import failures
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        # Don’t crash the app; error out on API use instead
+        raise RuntimeError("OPENAI_API_KEY is not set on the server.")
+    _client = OpenAI(api_key=api_key)
+    return _client
 
 # Faculty, alumni, and advisor data
 faculty_members = [
@@ -57,9 +75,7 @@ def conversation(messages, temperature=0.4):
 # ROUTES
 # ------------------------------
 
-@app.route("/health")
-def health():
-    return "OK", 200
+
 @app.route("/")
 def index():
     return render_template("index.html")
