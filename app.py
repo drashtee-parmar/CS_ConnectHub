@@ -10,11 +10,12 @@ load_dotenv()
 app = Flask(__name__)
 
 # Initialize OpenAI client
-api_key = os.getenv("OPENAI_API_KEY")
-if not api_key:
-    raise RuntimeError("OPENAI_API_KEY is not set. Please configure it in your .env file.")
-# client = OpenAI(api_key=api_key)
-client = OpenAI()
+# api_key = os.getenv("OPENAI_API_KEY")
+# if not api_key:
+#     raise RuntimeError("OPENAI_API_KEY is not set. Please configure it in your .env file.")
+# # client = OpenAI(api_key=api_key)
+# client = OpenAI()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Faculty, alumni, and advisor data
 faculty_members = [
@@ -155,6 +156,6 @@ def teaching_assistant_chat():
 
 # Run App
 if __name__ == "__main__":
-    # app.run(debug=True)
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=False)
+    app.run(debug=True)
+    # port = int(os.environ.get("PORT", 5000))
+    # app.run(host="0.0.0.0", port=port, debug=False)
