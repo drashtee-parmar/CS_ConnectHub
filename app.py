@@ -13,7 +13,8 @@ app = Flask(__name__)
 api_key = os.getenv("OPENAI_API_KEY")
 if not api_key:
     raise RuntimeError("OPENAI_API_KEY is not set. Please configure it in your .env file.")
-client = OpenAI(api_key=api_key)
+# client = OpenAI(api_key=api_key)
+client = OpenAI()
 
 # Faculty, alumni, and advisor data
 faculty_members = [
