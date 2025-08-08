@@ -54,6 +54,10 @@ def conversation(messages, temperature=0.4):
 # ------------------------------
 # ROUTES
 # ------------------------------
+
+@app.get("/health")
+def health():
+    return {"ok": True}, 200
 @app.route("/")
 def index():
     return render_template("index.html")
